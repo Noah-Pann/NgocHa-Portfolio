@@ -662,7 +662,8 @@
     );
 
     let inView = false;
-    let previewEnd = 20;
+    let previewStart = ({ "to-te-ti": 3.77, "daddys-here": 2, "excretory-haki": 78.1, "sentinel": 51.4 })[project.id] || 0;
+    let previewEnd = previewStart + 20;
 
     function shouldPlay() {
       return (
@@ -692,7 +693,9 @@
         Number.isFinite(video.duration) &&
         video.duration > 0
       ) {
-        previewEnd = Math.min(20, video.duration);
+        previewStart = Math.min(previewStart, Math.max(0, video.duration - 1));
+        previewEnd = Math.min(previewStart + 20, video.duration);
+        video.currentTime = previewStart;
       }
 
       updatePlayback();
@@ -1268,6 +1271,9 @@ const source = encodeURI(
     }
 
     const project = projects[index];
+    page.dataset.projectId = project.id;
+    page.dataset.projectYear = project.year;
+    page.dataset.projectCategory = project.category;
 
     document.title = `${project.title} — Phan Ngoc Ha`;
 

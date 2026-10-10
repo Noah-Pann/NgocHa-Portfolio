@@ -1,0 +1,40 @@
+body.home-body { background:#000; --name-color:#91385d; --role-color:#231f20; --menu-color:#231f20; }
+.home-body .sky { display:none; }
+.home-body .home { background:#000; height:100svh; min-height:0; overflow:hidden; }
+html:has(body.home-body),body.home-body { height:100%; overflow:hidden; }
+.home-body .composition { width:min(100%,calc(100svh * 1.65)); margin-inline:auto; z-index:1; }
+.home-body .home-masthead { position:absolute; top:28px; left:var(--editorial-gutter); width:40%; z-index:4; color:var(--editorial-note); font:12px/1.5 'Courier New',monospace; letter-spacing:.04em; text-transform:uppercase; pointer-events:none; }
+.home-body .identity h1 { font-family:var(--title-font); font-weight:500; letter-spacing:-.045em; }
+.home-body .identity .role { font-family:var(--body-font); font-weight:400; }
+.home-body .identity-contacts { --identity-contact-color:#231f20; --identity-line:#686063; }
+.home-body .nav-link { font-family:var(--title-font); font-weight:500; }
+.home-body .home-star { position:absolute; display:block; pointer-events:none; user-select:none; z-index:0; transform-origin:center; }
+.home-body .home-star--pink { top:4%; left:9%; width:clamp(70px,9vw,140px); aspect-ratio:1; animation:home-star-turn 32s linear infinite; }
+.home-body .home-star--blue { right:8%; bottom:1%; width:clamp(65px,7vw,110px); aspect-ratio:207 / 317; animation:home-star-turn 40s linear infinite reverse; }
+.home-body .nav-link::before { top:50%; bottom:auto; height:1.15em; margin-top:-.575em; background:#a6497240; mix-blend-mode:normal; transition:transform 320ms cubic-bezier(.76,0,.24,1); }
+.home-body .nav-link:hover,.home-body .nav-link.is-tap-active,.home-body .nav-link:focus-visible { color:var(--menu-color); }
+.home-body .home-meteors { position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:0; }
+.home-body .home-meteor { position:absolute; width:clamp(90px,13vw,200px); height:1px; background:linear-gradient(90deg,#f2eee9,rgba(255,92,145,.45) 25%,transparent); opacity:0; animation:home-meteor-fall 12s linear infinite; }
+.home-body .home-meteor::before { content:""; position:absolute; left:0; top:-1px; width:3px; height:3px; border-radius:50%; background:#f2eee9; box-shadow:0 0 7px #ff5c9166; }
+.home-body .home-meteor:nth-child(1) { left:30%; top:-4%; animation-delay:0s; }
+.home-body .home-meteor:nth-child(2) { left:78%; top:-10%; animation-delay:3s; }
+.home-body .home-meteor:nth-child(3) { left:98%; top:25%; animation-delay:6s; }
+.home-body .home-meteor:nth-child(4) { left:55%; top:-6%; animation-delay:9s; }
+.home-body .home-meteor:nth-child(5) { left:90%; top:40%; animation-delay:4.5s; }
+.home-body.is-home-hidden .home-meteor,.home-body.is-home-hidden .home-star { animation-play-state:paused; }
+@keyframes home-meteor-fall {
+ 0% { opacity:0; transform:translate3d(0,0,0) rotate(-55deg); }
+ 2% { opacity:.7; }
+ 19% { opacity:0; transform:translate3d(-48vw,78vh,0) rotate(-55deg); }
+ 100% { opacity:0; transform:translate3d(-48vw,78vh,0) rotate(-55deg); }
+}
+.home-body a:focus-visible,.home-body .nav-link:focus-visible { outline:3px solid #56d6b5; outline-offset:5px; }
+@keyframes home-star-turn { to { transform:rotate(360deg); } }
+@media(max-width:900px) {
+ .home-body .home { display:block; }
+ .home-body .composition { width:100%; min-height:0; padding-bottom:0; transform:scale(var(--home-fit-scale,1)); transform-origin:top center; }
+ .home-body .home-masthead { top:24px; width:31%; font-size:10px; }
+ .home-body .home-star--pink { top:110px; left:4%; width:64px; }
+ .home-body .home-star--blue { bottom:2%; right:5%; width:62px; }
+}
+@media(prefers-reduced-motion:reduce) { .home-body .home-star { animation:none; } .home-body .home-meteors { display:none; } .home-body .nav-link::before { transition:none; } }

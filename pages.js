@@ -17,7 +17,7 @@
     contact: "contact.html"
   };
 
-  const EXIT_DURATION = 320;
+  const EXIT_DURATION = window.portfolioMotion?.exit ?? 320;
 
   let navigating = false;
   let exitAnimation = null;
@@ -239,6 +239,7 @@
     if (
       !page ||
       page.matches(".profile-page") ||
+      document.documentElement.classList.contains("project-editorial") ||
       page.dataset.sharedMotionReady
     ) {
       return;
@@ -260,8 +261,8 @@
 
     const settings = {
       textSpeed: 170,  // Ký tự/giây, bằng Profile
-      moveDuration: 850,
-      stagger: 90,
+      moveDuration: window.portfolioMotion?.reveal ?? 850,
+      stagger: window.portfolioMotion?.stagger ?? 90,
       ease: "cubic-bezier(.22, 1, .36, 1)"
     };
 
@@ -716,7 +717,7 @@
       /* ---------- CONTACT ---------- */
 
       if (page.matches(".contact-page")) {
-        write(page.querySelector(".contact-heading h1"));
+        if (!page.closest(".editorial-page")) write(page.querySelector(".contact-heading h1"));
 
         motion(page.querySelector(".contact-hand"), {
           x: 28,

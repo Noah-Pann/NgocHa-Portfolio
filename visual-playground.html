@@ -1,113 +1,36 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Visual Playground — Phan Ngoc Ha</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Lora:wght@500;600&display=swap"
-    rel="stylesheet"
-  >
-
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="pages.css">
-  <link rel="stylesheet" href="visual-playground.css?v=2">
-
-  <script src="background.js"></script>
-  <script src="header.js" defer></script>
-  <script src="pages.js" defer></script>
-  <script src="visual-playground.js?v=2" defer></script>
+ <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>Visual Playground — Phan Ngoc Ha</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Lora:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="pages.css"><link rel="stylesheet" href="scrapbook.css"><link rel="stylesheet" href="editorial-shell.css">
+ <script src="header.js" defer></script><script src="pages.js" defer></script><script src="scrapbook.js" defer></script>
+  <script src="portfolio-motion.js" defer></script>
 </head>
-
-<body class="inner-page">
-  <div class="sky" aria-hidden="true">
-    <div class="home-bg-position">
-      <img
-        class="home-bg-image"
-        src="assets-all/bg.png"
-        alt=""
-        draggable="false"
-      >
-    </div>
-  </div>
-
-  <header class="inner-header"></header>
-
-  <main class="inner-main playground-page">
-    <header class="playground-heading">
-      <h1>Visual Playground</h1>
-    </header>
-
-    <section class="playground-arts" aria-labelledby="arts-heading">
-      <div class="playground-intro">
-        <h2 id="arts-heading">Illustration and Animation</h2>
-        <p>A selection of drawings from my art gallery.</p>
-      </div>
-
-      <div class="arts-stage">
-        <div
-          id="arts-viewport"
-          class="arts-viewport"
-          role="group"
-          aria-label="Artwork gallery. Drag to browse, or focus an artwork and use the arrow keys."
-        ></div>
-
-<div class="playground-girl-frame" aria-hidden="true">
-  <img
-    class="playground-girl"
-    src="visual-playground/girl-left.webp"
-    alt=""
-    draggable="false"
-  >
-</div>
-
-        <img
-          class="playground-star"
-          src="About%20me/decoration-assets/starss.svg"
-          alt=""
-          aria-hidden="true"
-          draggable="false"
-        >
-      </div>
-    </section>
-
-    <section
-      class="playground-animation"
-      aria-labelledby="animation-heading"
-    >
-      <h2 id="animation-heading">Animation</h2>
-      <div id="animation-grid" class="animation-grid"></div>
-    </section>
-  </main>
-
-  <dialog
-    id="animation-dialog"
-    class="animation-dialog"
-    aria-labelledby="animation-dialog-title"
-  >
-    <div class="animation-dialog-header">
-      <h2 id="animation-dialog-title"></h2>
-
-      <button
-        id="animation-close"
-        class="playground-button"
-        type="button"
-        aria-label="Close project"
-      >
-        Close ×
-      </button>
-    </div>
-
-    <div id="animation-dialog-media"></div>
-
-    <div class="animation-dialog-info">
-      <p id="animation-dialog-bio"></p>
-      <p id="animation-dialog-software"></p>
-    </div>
-  </dialog>
+<body class="inner-page scrapbook-body editorial-page">
+ <a class="editorial-skip" href="#illustrations">Skip to illustrations</a>
+ <header class="inner-header"></header>
+ <main class="inner-main scrapbook-page" id="top">
+  <div class="scrap-masthead scrap-label editorial-masthead"><span>Phan Ngoc Ha / Personal explorations</span><span>Illustration + animation / Digital scrapbook</span></div>
+  <header class="scrap-heading editorial-heading"><h1>Visual<br><em>Playground.</em></h1><p class="editorial-intro">A selection of drawings from my art gallery.<br>A little room to play.</p></header>
+  <nav class="scrap-jumps editorial-jumps" aria-label="Playground sections"><div><a href="#illustrations">01 / Illustrations ↓</a><a href="#motion">02 / Animation ↓</a></div><button class="scrap-reset" id="scrap-reset" type="button">Reset arrangement ↺</button></nav>
+  <section class="scrap-desk" aria-label="Scrapbook cover">
+   <span class="scrap-desk-word" aria-hidden="true">PLAY /</span>
+   <figure class="scrap-girl" data-art="Girl with birds"><button class="scrap-enlarge" type="button" aria-label="Enlarge girl with birds"><img src="visual-playground/girl-left.webp?v=7d7e242" alt="Girl with birds" draggable="false"></button><figcaption><button class="scrap-handle" type="button" aria-label="Move girl with birds" aria-describedby="scrap-drag-help">⠿ Move</button></figcaption></figure>
+   <img class="scrap-desk-star" src="About%20me/decoration-assets/pink-star.svg" alt="" aria-hidden="true">
+   <img class="scrap-sticker" src="About%20me/decoration-assets/blue-black-star.svg" alt="" aria-hidden="true">
+   <figure class="scrap-print scrap-print--love" data-art="Love"><button class="scrap-enlarge" type="button" aria-label="Enlarge Love"><img src="visual-playground/arts/love.webp" alt="Love" draggable="false"></button><figcaption class="scrap-print-caption"><span>Love / 06</span><button class="scrap-handle" type="button" aria-label="Move Love print" aria-describedby="scrap-drag-help">⠿ Move</button></figcaption></figure>
+   <figure class="scrap-print scrap-print--green" data-art="Green"><button class="scrap-enlarge" type="button" aria-label="Enlarge Green"><img src="visual-playground/arts/green.webp" alt="Green" draggable="false"></button><figcaption class="scrap-print-caption"><span>Green / 05</span><button class="scrap-handle" type="button" aria-label="Move Green print" aria-describedby="scrap-drag-help">⠿ Move</button></figcaption></figure>
+   <aside class="scrap-note">Drawn, collected,<br>slightly rearranged.</aside>
+   <span id="scrap-drag-help" class="scrap-sr">Drag the Move handle, or focus it and use the arrow keys. Home resets its position. Click the artwork to enlarge.</span>
+  </section>
+  <section class="scrap-section" id="illustrations" aria-labelledby="illustrations-title"><header class="scrap-section-heading"><h2 id="illustrations-title">From my sketchbook.</h2><span class="scrap-label">12 drawings / Click to look closer ↗</span></header><div class="scrap-gallery" id="scrap-gallery"></div></section>
+  <section class="scrap-section" id="motion" aria-labelledby="motion-title"><header class="scrap-section-heading"><h2 id="motion-title">A few things<br><em>in motion.</em></h2><span class="scrap-label">04 experiments</span></header><div class="scrap-motions" id="scrap-motions"></div></section>
+  <footer class="scrap-footer editorial-footer"><div class="editorial-footer-identity"><span>Phan Ngoc Ha / Visual Playground</span><a class="inner-back" href="selected-works.html">← Selected Works</a></div><a class="inner-back" href="profile.html">Next: Profile ↗</a><a href="#top">Back to top ↑</a></footer>
+  <noscript><p>Enable JavaScript to browse the full scrapbook. <a href="visual-playground/arts/love.webp">View Love</a> · <a href="visual-playground/arts/green.webp">View Green</a></p></noscript>
+ </main>
+ <dialog class="scrap-dialog" id="scrap-dialog" aria-labelledby="scrap-dialog-title"><header><h2 id="scrap-dialog-title"></h2><button type="button" id="scrap-close">Close ×</button></header><div class="scrap-dialog-media" id="scrap-dialog-media"></div><div class="scrap-dialog-copy" id="scrap-dialog-copy"></div></dialog>
 </body>
 </html>

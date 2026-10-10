@@ -15,19 +15,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Lora:wght@500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Lora:ital,wght@0,500;0,600;1,500&display=swap"
     rel="stylesheet"
   >
 
   <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="background.css">
+<link rel="stylesheet" href="home-editorial.css">
+<link rel="stylesheet" href="editorial-shell.css">
   <!-- Giữ script ở đây để chuẩn bị intro trước khi Home xuất hiện -->
   <script src="script.js"></script>
   <script src="pages.js" defer></script>
+  <script src="home-editorial.js" defer></script>
   <script src="background.js"></script>
+  <script src="portfolio-motion.js" defer></script>
 </head>
 
-<body>
+<body class="home-body editorial-page" id="top">
   <!-- NỀN MÂY -->
 <!-- Nền ảnh của Home -->
 <div class="sky" aria-hidden="true">
@@ -42,7 +45,11 @@
 </div>
 
   <main class="home" aria-label="Phan Ngoc Ha portfolio">
+    <div class="home-meteors" aria-hidden="true"><span class="home-meteor"></span><span class="home-meteor"></span><span class="home-meteor"></span><span class="home-meteor"></span><span class="home-meteor"></span></div>
+    <div class="home-masthead">Phan Ngoc Ha / Digital media</div>
     <div class="composition">
+      <svg class="home-star home-star--pink" viewBox="61 40 281 281" aria-hidden="true" focusable="false"><image href="About%20me/decoration-assets/pink-star.svg" width="403.404" height="360.322" /></svg>
+      <svg class="home-star home-star--blue" viewBox="129 61 207 317" aria-hidden="true" focusable="false"><image href="About%20me/decoration-assets/blue-black-star.svg" width="439.918" height="415.679" /></svg>
 
       <!-- PHONG THƯ BÊN TRÁI -->
       <section class="letter" aria-labelledby="name">
@@ -88,7 +95,7 @@
     <h1 id="name">Phan Ngoc Ha</h1>
 
     <p class="role">
-      Motion Designer &amp; Illustrator
+      Graphic design · Illustration · Motion
     </p>
 
     <ul class="identity-contacts" aria-label="Contact information">
@@ -116,7 +123,7 @@
             width="16"
             height="16"
           >
-          <span>noa_hpan</span>
+          <span>@noa_hpan</span>
         </a>
       </li>
 

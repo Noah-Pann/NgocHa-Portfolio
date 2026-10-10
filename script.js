@@ -225,7 +225,7 @@ letter.addEventListener("click", event => {
         const animation = element.animate(frames, {
           duration,
           delay,
-          easing: "cubic-bezier(.22, 1, .36, 1)",
+          easing: window.portfolioMotion?.easing ?? "cubic-bezier(.22, 1, .36, 1)",
           fill: "both"
         });
 
@@ -287,8 +287,8 @@ letter.addEventListener("click", event => {
               opacity: 1
             }
           ],
-          550,
-          1400 + index * 110
+          window.portfolioMotion?.detail ?? 650,
+          1400 + index * (window.portfolioMotion?.stagger ?? 90)
         );
       });
 

@@ -1,0 +1,252 @@
+[
+  {
+    "file": "background.js",
+    "bytes": 608,
+    "sha256": "b662540a9afffd2a8d483a22747e9aa1620e5f7e0d0517e125dcd169624115b3"
+  },
+  {
+    "file": "contact-editorial.css",
+    "bytes": 1953,
+    "sha256": "3579b4bb42fdbc1eab92567ec3502de009bf4f3e167101bc19661d2bf3cf185b"
+  },
+  {
+    "file": "contact.css",
+    "bytes": 6457,
+    "sha256": "c56e01b2aff294eb2b3d95cd4936a132c249ca56a91d7e446585aa8d124447f7"
+  },
+  {
+    "file": "contact.html",
+    "bytes": 5179,
+    "sha256": "580d0cd52077edbecce7f82fefb8ccc0b91256a8dd0c94e53506a3888b9ee3b4"
+  },
+  {
+    "file": "contact.js",
+    "bytes": 65,
+    "sha256": "d17a19378000edd7bbe88c6c261bbfcae0a0ba61186370a571a581ca6da49827"
+  },
+  {
+    "file": "editorial-shell.css",
+    "bytes": 6010,
+    "sha256": "031e593e09146cd30c34b2b0a43e06b6a082c5100b93c432de23e9388e93a4f2"
+  },
+  {
+    "file": "header.js",
+    "bytes": 5548,
+    "sha256": "ded432231c1f2361b094c2a0fb86c94af190155c61b5814bc0ee2d1d5ea3003b"
+  },
+  {
+    "file": "home-editorial.css",
+    "bytes": 3777,
+    "sha256": "323118e68626c8097edbca08a4aca8bd3bfab2e5914beef5b1aaa465369a6112"
+  },
+  {
+    "file": "home-editorial.js",
+    "bytes": 785,
+    "sha256": "99be191290ba4bc540ba971f90d08dcfe032698926e40a12dc88cd2a1f39387f"
+  },
+  {
+    "file": "index.html",
+    "bytes": 7178,
+    "sha256": "bee7d6f61e5950b3f4b4e32898a368ac4ff2c22ac4dbe647275865d5dad77599"
+  },
+  {
+    "file": "logo.svg",
+    "bytes": 3246,
+    "sha256": "1e7003c9c4c759f613f2b96d02ce756aaf1657afbc70ce58605c86648373567e"
+  },
+  {
+    "file": "pages.css",
+    "bytes": 13420,
+    "sha256": "d3df98d66c48749b00f6c133cf40750edbbb4df248614106aa6999d62a1fa259"
+  },
+  {
+    "file": "pages.js",
+    "bytes": 22017,
+    "sha256": "fb75902f15a69bd0ec6e4c90e879c1eea0ede4e6c057139ef65455d5322d8613"
+  },
+  {
+    "file": "portfolio-motion.js",
+    "bytes": 3245,
+    "sha256": "52be1cce81762015cca1f2557d2031b621f0491d815a1b76a56d9425ceddfd08"
+  },
+  {
+    "file": "profile-editorial.css",
+    "bytes": 3729,
+    "sha256": "1d52fc91b2ac2cf71d381a505c37f16e7417a0a811bdd216561b4b8346f170f7"
+  },
+  {
+    "file": "profile.css",
+    "bytes": 12646,
+    "sha256": "958bae962194928d13d06149a18d8e0dc14defb24e2a4114604b85457c6f377b"
+  },
+  {
+    "file": "profile.html",
+    "bytes": 7194,
+    "sha256": "d34e8b6af149e24a3510cf055a44ae6053b45e29f3242f56af1715aaf6374276"
+  },
+  {
+    "file": "profile.js",
+    "bytes": 15564,
+    "sha256": "d01f0648033689fe7194c58dc737bdde6a7512c78123679f7ff3fdc0684a54c1"
+  },
+  {
+    "file": "project-editorial.css",
+    "bytes": 11112,
+    "sha256": "74a8d2dd51dd8bd3843b627967c42b4eec97aa6e7d4b71082b1fabb1c1ffe070"
+  },
+  {
+    "file": "project-editorial.js",
+    "bytes": 6443,
+    "sha256": "4994caacade6c2ab0908eee641f5aeb91b17b4f3dca7848ea73009b7ade28061"
+  },
+  {
+    "file": "project.css",
+    "bytes": 13068,
+    "sha256": "f3f12d91c4e04940902ef81cef7490539bb2165c0b8279544bfefa5e5499c805"
+  },
+  {
+    "file": "project.html",
+    "bytes": 2271,
+    "sha256": "a881b43b71e27a09b4f4c5447c387968569ab3eb713816ee73ec137209560f75"
+  },
+  {
+    "file": "project.js",
+    "bytes": 41520,
+    "sha256": "a6c12a952c67bd963dcf8d2aaa7e4b7c8c4821c36a84a7c560149ce7233112e2"
+  },
+  {
+    "file": "scrapbook.css",
+    "bytes": 16554,
+    "sha256": "70d16022cce39f49e3a40c5fc845bd5629bb43e0d17bf8984aaff431f2022385"
+  },
+  {
+    "file": "scrapbook.js",
+    "bytes": 8877,
+    "sha256": "6e23b2db25ec799eea2541dae7f0219fbade6faadf9d672a73afd8ec5e6943ab"
+  },
+  {
+    "file": "script.js",
+    "bytes": 8605,
+    "sha256": "592e1b568df0e76272cd0049f26aa1f0d1879f55b0d4d159752b73bf20e95b63"
+  },
+  {
+    "file": "selected-works-archive.css",
+    "bytes": 13581,
+    "sha256": "5cd7bcf7d00bef9b9ec20d6c3bab56533161e6c002bdda4912e6b145b9e50cc7"
+  },
+  {
+    "file": "selected-works-archive.js",
+    "bytes": 5981,
+    "sha256": "850547d5272f2d3178836c73c417bb7ad1618f05f4b367ddfc937fe856bf945f"
+  },
+  {
+    "file": "selected-works-media.js",
+    "bytes": 9865,
+    "sha256": "e4cf486a11639e2cf385f6d0446a499249937650d6b7918a949a7705eeb260c8"
+  },
+  {
+    "file": "selected-works.css",
+    "bytes": 17649,
+    "sha256": "1f2b2d034b76ad369745e76628d75452f593ae7f76571e107ed5d107f595d365"
+  },
+  {
+    "file": "selected-works.html",
+    "bytes": 15490,
+    "sha256": "b80ccdb7809ebb70f4eb5e0e9750669fa80bc58a3ed00e4ac8048b9980a355ff"
+  },
+  {
+    "file": "selected-works.js",
+    "bytes": 16507,
+    "sha256": "cc1dec711e47da0900d55a71f6d25fc16e87b213f9d3c742b5b765f73852a8e5"
+  },
+  {
+    "file": "styles.css",
+    "bytes": 20014,
+    "sha256": "e835d28fa94a3b1aeda741e74c0128a5fc1a16ce63619bb2020007f3e9ebd321"
+  },
+  {
+    "file": "visual-playground-scrapbook.html",
+    "bytes": 418,
+    "sha256": "0183a767b8f2c635d8195a834eef39dc7854b8224f77bd5831e4414763b3ac08"
+  },
+  {
+    "file": "visual-playground.css",
+    "bytes": 13394,
+    "sha256": "e933b48dfd754dddc4f887b090ad30db831e97ef1ecc00cd13c060efc72464f2"
+  },
+  {
+    "file": "visual-playground.html",
+    "bytes": 5041,
+    "sha256": "cc3e142f7257e78d6f1d9255d72c1cc417f565228b6a0ef9406b29eea0619a76"
+  },
+  {
+    "file": "visual-playground.js",
+    "bytes": 16232,
+    "sha256": "52d0542f2e3053dc0f70a2c859dab5e1acb279b3b4766afcd592dd988d6ef600"
+  },
+  {
+    "file": "selected works/posters/daddys-here.jpg",
+    "bytes": 94588,
+    "sha256": "40ee9a8b274647e1b42c4bdeb0578d06d9950ebc7c3b9cae05ff018c2170826f"
+  },
+  {
+    "file": "selected works/posters/excretory-haki.jpg",
+    "bytes": 125413,
+    "sha256": "3e2159a11f46eeed91b19d4239d460b7601d1d4d3577ceecdeef32cd69fac3a6"
+  },
+  {
+    "file": "selected works/posters/olympian-icons.jpg",
+    "bytes": 61400,
+    "sha256": "ce30cc1d59e822a6006384ef56319823ce2b549013b3a66e0e380473cac63ac4"
+  },
+  {
+    "file": "selected works/posters/overthinking.jpg",
+    "bytes": 214339,
+    "sha256": "50d15e914b04cad63d164952ac15f04b893a611381bd1d64db250bf2117bbca6"
+  },
+  {
+    "file": "selected works/posters/sentinel.jpg",
+    "bytes": 88486,
+    "sha256": "0fa6e34c696b739657a842fae8178cdd97163fff79a7d6912eb3cb50fadb7991"
+  },
+  {
+    "file": "selected works/posters/silent-cat.jpg",
+    "bytes": 117701,
+    "sha256": "183db259dbc21ad4a1586f5331d862bacf2f1c6fc13723394f2f9d467872bee8"
+  },
+  {
+    "file": "selected works/posters/skincare.jpg",
+    "bytes": 129418,
+    "sha256": "3156112f0613f4a1089ff74cf1ad3f2b8719775a3c45002492a77d5da6ce02ef"
+  },
+  {
+    "file": "selected works/posters/to-te-ti.jpg",
+    "bytes": 192636,
+    "sha256": "12d1a35381da6acd656100e223b6ab0cb13dce8534e3045902ebe5abf01b5371"
+  },
+  {
+    "file": "visual-playground/posters/0.jpg",
+    "bytes": 34357,
+    "sha256": "e36e053982f16c0c1e14f37bcd0c4ab3a8d27ff0d01a2df1e7a0dae2b09bdfcd"
+  },
+  {
+    "file": "visual-playground/posters/1.jpg",
+    "bytes": 220734,
+    "sha256": "8c462d1ca79c36f24190eabc0928da4b08b4dc4497d0274c925c2a2c31d316cf"
+  },
+  {
+    "file": "visual-playground/posters/2.jpg",
+    "bytes": 910326,
+    "sha256": "157aa587c3c454126fb5b5635765c3276e00a08ed4c2e0033a6227b1affc2c63"
+  },
+  {
+    "file": "visual-playground/posters/3.jpg",
+    "bytes": 377012,
+    "sha256": "23b60cb66a596c7e34336673181b2acff1c3c0c42a04938011606c456dc5bdff"
+  },
+  {
+    "file": "visual-playground/girl-left.webp",
+    "bytes": 556264,
+    "sha256": "3c46dda699b69b494931ddea13e766b616289496841a4cf490a124bd2d5ad94c"
+  }
+]

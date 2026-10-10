@@ -78,7 +78,7 @@
       element,
       trigger,
       frames,
-      duration = 850,
+      duration = window.portfolioMotion?.reveal ?? 850,
       delay = 0
     ) {
       if (!element) return;
@@ -86,7 +86,7 @@
       const animation = element.animate(frames, {
         duration,
         delay,
-        easing: "cubic-bezier(.22, 1, .36, 1)",
+        easing: window.portfolioMotion?.easing ?? "cubic-bezier(.22, 1, .36, 1)",
         fill: "both"
       });
 
@@ -411,8 +411,8 @@
                   transform: "translateY(0) scale(1)"
                 }
               ],
-              750,
-              i * 90
+              window.portfolioMotion?.reveal ?? 850,
+              i * (window.portfolioMotion?.stagger ?? 90)
             );
           });
 

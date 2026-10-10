@@ -9,21 +9,25 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Lora:wght@500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Lora:ital,wght@0,500;0,600;1,500&display=swap"
     rel="stylesheet"
   >
 
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="pages.css">
 <link rel="stylesheet" href="profile.css">
+<link rel="stylesheet" href="profile-editorial.css">
+<link rel="stylesheet" href="editorial-shell.css">
 
 <script src="background.js"></script>
 <script src="header.js" defer></script>
 <script src="pages.js" defer></script>
 <script src="profile.js" defer></script>
+  <script src="portfolio-motion.js" defer></script>
 </head>
 
-<body class="inner-page">
+<body class="inner-page editorial-page profile-body">
+  <a class="editorial-skip" href="#about">Skip to about me</a>
   <div class="sky" aria-hidden="true">
     <div class="home-bg-position">
       <img
@@ -38,7 +42,10 @@
   <header class="inner-header"></header>
 
   <main class="inner-main profile-page">
-    <section class="profile-hero" aria-labelledby="about-title">
+    <div class="editorial-masthead"><span>Phan Ngoc Ha / Digital media</span><span>Profile / Behind the work</span></div>
+    <div class="editorial-heading"><h1 id="about-title">About<br><em>Me.</em></h1><p class="editorial-intro">Hi, I'm Hà, a Digital Media student at RMIT University Vietnam working across graphic design, illustration and motion.</p></div>
+    <nav class="editorial-jumps" aria-label="Profile sections"><div><a href="#about">01 / About me ↓</a><a href="#skills">02 / What I do ↓</a><a href="#tools">03 / Tools ↓</a></div></nav>
+    <section class="profile-hero" id="about" aria-labelledby="about-title">
 
       <!-- COLLAGE -->
       <div class="profile-collage">
@@ -92,9 +99,6 @@
 
       <!-- ABOUT ME -->
       <div class="profile-copy">
-        <h1 class="profile-title" id="about-title" data-write>
-          About Me
-        </h1>
 
         <p class="profile-role">
           <span class="profile-sr-only">
@@ -109,10 +113,6 @@
         </p>
 
         <div class="profile-bio">
-          <p data-write>
-            Hi, I'm Hà, a Digital Media student at RMIT University
-            Vietnam working across graphic design, illustration and motion.
-          </p>
 
           <p data-write>
             I enjoy combining different media and visual styles to create
@@ -136,7 +136,8 @@
     </section>
 
     <!-- SKILLS -->
-    <section class="profile-skills" aria-labelledby="skills-title">
+    <section class="profile-skills" id="skills" aria-labelledby="skills-title">
+      <span class="profile-section-label">02 / Creative practice</span>
       <svg
         class="profile-mark profile-mark--closing"
         viewBox="230 185 170 143"
@@ -159,7 +160,8 @@
     </section>
 
     <!-- TOOLS -->
-    <section class="profile-tools" aria-labelledby="tools-title">
+    <section class="profile-tools" id="tools" aria-labelledby="tools-title">
+      <span class="profile-section-label">03 / My toolkit</span>
       <h2 id="tools-title" data-write>Tools</h2>
 
       <ul class="profile-tool-list">
@@ -190,22 +192,17 @@
       </ul>
     </section>
 
-    <div class="profile-bottom">
-      <svg
-        class="profile-mark profile-mark--opening"
-        viewBox="219 203 171 144"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <image
-          href="About%20me/decoration-assets/mark-down.svg"
-          width="619.915"
-          height="549.698"
-        />
+    <div class="profile-bottom-quote" aria-hidden="true">
+      <svg class="profile-mark profile-mark--opening" viewBox="219 203 171 144" focusable="false">
+        <image href="About%20me/decoration-assets/mark-down.svg" width="619.915" height="549.698" />
       </svg>
-
-      <a class="inner-back" href="index.html">← Back to Home</a>
     </div>
+
+    <footer class="editorial-footer">
+      <div class="editorial-footer-identity"><span>Phan Ngoc Ha / Profile</span><a class="inner-back" href="index.html">← Home</a></div>
+      <a class="inner-back" href="selected-works.html">Next: Selected Works ↗</a>
+      <a href="#about-title">Back to top ↑</a>
+    </footer>
   </main>
 </body>
 </html>

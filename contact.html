@@ -9,21 +9,25 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Lora:wght@500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Lora:ital,wght@0,500;0,600;1,500&display=swap"
     rel="stylesheet"
   >
 
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="pages.css">
   <link rel="stylesheet" href="contact.css">
+  <link rel="stylesheet" href="contact-editorial.css">
+  <link rel="stylesheet" href="editorial-shell.css">
 
   <script src="background.js"></script>
   <script src="header.js" defer></script>
   <script src="pages.js" defer></script>
   <script src="contact.js" defer></script>
+  <script src="portfolio-motion.js" defer></script>
 </head>
 
-<body class="inner-page">
+<body class="inner-page editorial-page contact-body">
+  <a class="editorial-skip" href="#contact-details">Skip to contact details</a>
   <div class="sky" aria-hidden="true">
     <div class="home-bg-position">
       <img
@@ -38,22 +42,18 @@
   <header class="inner-header"></header>
 
   <main class="inner-main contact-page">
-<img
-  class="contact-hand"
-  src="contact/hand-writting.webp"
-  alt=""
-  aria-hidden="true"
-  draggable="false"
->
 
-    <header class="contact-heading">
-      <h1>Contact</h1>
+
+    <div class="editorial-masthead"><span>Phan Ngoc Ha / Digital media</span><span>Contact / Get in touch</span></div>
+    <header class="contact-heading editorial-heading">
+      <h1 id="contact-title">Let's get<br><em>in touch!</em></h1>
+      <p class="editorial-intro">Graphic design, illustration and motion.<br>Based in Ho Chi Minh City, Vietnam.</p>
     </header>
+    <nav class="editorial-jumps" aria-label="Contact sections"><div><a href="#contact-details">01 / Contact details ↓</a></div></nav>
+    <div class="contact-stage">
 
-    <section class="contact-content" aria-labelledby="contact-greeting">
-      <h2 id="contact-greeting" class="contact-greeting">
-        Let's get in touch!
-      </h2>
+    <section class="contact-content" id="contact-details" aria-labelledby="contact-greeting">
+      <h2 id="contact-greeting" class="contact-greeting">01 / Contact details</h2>
 
       <div class="contact-frame">
         <ul class="contact-list">
@@ -142,6 +142,12 @@
         </ul>
       </div>
     </section>
+    </div>
+    <footer class="editorial-footer">
+      <div class="editorial-footer-identity"><span>Phan Ngoc Ha / Contact</span><a class="inner-back" href="visual-playground.html">← Visual Playground</a></div>
+      <a class="inner-back" href="index.html">Next: Home ↗</a>
+      <a href="#contact-title">Back to top ↑</a>
+    </footer>
   </main>
 </body>
 </html>
