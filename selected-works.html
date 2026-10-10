@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Selected Works — Phan Ngoc Ha</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Lora:wght@500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="pages.css">
+  <link rel="stylesheet" href="selected-works.css">
+
+  <script src="background.js"></script>
+  <script src="header.js" defer></script>
+  <script src="pages.js" defer></script>
+  <script src="selected-works.js" defer></script>
+  <script src="selected-works-media.js" defer></script>
+<script src="project.js?v=3" defer></script>
+</head>
+
+<body class="inner-page">
+  <div class="sky" aria-hidden="true">
+    <div class="home-bg-position">
+      <img
+        class="home-bg-image"
+        src="assets-all/bg.png"
+        alt=""
+        draggable="false"
+      >
+    </div>
+  </div>
+
+  <header class="inner-header"></header>
+
+  <main class="inner-main works-page">
+    <div class="works-intro">
+      <h1 class="works-heading">Selected Works</h1>
+      <p class="works-subheading">
+        Academic projects across design, illustration and motion.
+      </p>
+    </div>
+
+    <section class="works-gallery" aria-label="Selected projects">
+      <div class="works-stage">
+        <!-- Hai chấm xanh trang trí -->
+<div class="works-dots" aria-hidden="true">
+  <span class="works-dot works-dot--large"></span>
+  <span class="works-dot works-dot--small"></span>
+</div>
+        <div class="works-year" aria-label="Project year">
+          <span class="works-year__value" id="works-year">2026</span>
+        </div>
+
+        <div class="works-viewport">
+          <div
+            class="works-track"
+            id="works-track"
+            role="group"
+            aria-label="Choose a project"
+          ></div>
+        </div>
+
+        <div class="works-controls">
+          <p class="works-hint">Select a project to explore</p>
+
+          <div class="works-arrows">
+            <button
+              class="works-arrow"
+              id="works-prev"
+              type="button"
+              aria-label="Previous project"
+            >←</button>
+
+            <button
+              class="works-arrow"
+              id="works-next"
+              type="button"
+              aria-label="Next project"
+            >→</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="works-info" id="works-info">
+        <h2 id="works-title"></h2>
+        <p class="works-category" id="works-category"></p>
+
+        <div class="works-rule" aria-hidden="true"></div>
+
+        <p class="works-brief" id="works-brief"></p>
+
+        <div class="works-actions">
+          <a class="works-action" id="works-project-link">
+            View Project <span aria-hidden="true">↗</span>
+          </a>
+
+          <a
+            class="works-action works-action--secondary"
+            id="works-website-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            hidden
+          >
+            Visit Website <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <p class="works-sr-only" id="works-announcement" aria-live="polite"></p>
+
+    <noscript>
+      <p>Please enable JavaScript to browse the projects.</p>
+    </noscript>
+    <!-- Ngôi sao trang trí dưới trang -->
+<img
+  class="works-decoration-star"
+  src="About%20me/decoration-assets/starss.svg"
+  alt=""
+  aria-hidden="true"
+  draggable="false"
+>
+  </main>
+</body>
+</html>

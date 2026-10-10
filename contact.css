@@ -1,0 +1,340 @@
+/* ========================================
+   CHỈNH NHANH
+   ======================================== */
+
+.contact-page {
+  --contact-pink: #a64972;
+  --contact-blue: #0040e3;
+  --contact-ink: #231f20;
+
+  --contact-padding: clamp(28px, 4vw, 56px);
+  --contact-content-width: 780px;
+  --contact-content-gap: clamp(60px, 8vw, 100px);
+
+  /* Bàn tay — tính từ góc trên bên phải giấy */
+  --contact-hand-width: clamp(180px, 25vw, 310px);
+  --contact-hand-top: 0px;
+  --contact-hand-right: 0px;
+}
+
+
+/* ========================================
+   GIẤY VÀ TIÊU ĐỀ
+   ======================================== */
+
+.inner-main.contact-page {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+
+  min-height: calc(100svh - 140px);
+  padding: var(--contact-padding);
+  padding-bottom: clamp(56px, 8vw, 100px);
+
+  background: #fff;
+  color: var(--contact-ink);
+  font-family: var(--body-font);
+}
+
+.contact-heading {
+  position: relative;
+  z-index: 2;
+}
+
+.contact-page .contact-heading h1 {
+  margin: 0;
+
+  font-family: var(--title-font);
+  font-size: clamp(40px, 6.2vw, 82px);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -.045em;
+
+  color: var(--contact-pink);
+  text-shadow: 2px 3px 0 var(--contact-blue);
+}
+
+
+/* ========================================
+   BÀN TAY
+   ======================================== */
+
+.contact-hand {
+  position: absolute;
+  z-index: 1;
+
+  top: var(--contact-hand-top);
+  right: var(--contact-hand-right);
+  width: var(--contact-hand-width);
+  height: auto;
+
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+
+/* ========================================
+   LET'S GET IN TOUCH
+   ======================================== */
+
+.contact-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(100%, var(--contact-content-width));
+  margin-top: var(--contact-content-gap);
+}
+
+.contact-page .contact-greeting {
+  margin: 0 0 28px;
+
+  font-family: var(--title-font);
+  font-size: clamp(30px, 3.5vw, 44px);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--contact-pink);
+}
+
+/* Giữ nguyên diện tích trong lúc gõ chữ */
+.contact-greeting.is-typing {
+  display: grid;
+}
+
+.contact-type-space,
+.contact-type-visible {
+  grid-area: 1 / 1;
+  min-width: 0;
+}
+
+.contact-type-space {
+  visibility: hidden;
+}
+
+.contact-type-visible::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: .9em;
+  margin-left: 5px;
+  vertical-align: -.04em;
+  background: var(--contact-blue);
+  animation: contact-caret 800ms step-end infinite;
+}
+
+.contact-greeting.is-complete .contact-type-visible::after {
+  display: none;
+}
+
+.contact-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes contact-caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+
+/* ========================================
+   KHUNG THÔNG TIN
+   ======================================== */
+
+.contact-frame {
+  position: relative;
+  padding: 18px;
+
+  border: 1px solid #d9d5d7;
+  background: #f7f6f4;
+}
+
+/* Nét xanh ở mép trên */
+.contact-frame::before {
+  content: "";
+  position: absolute;
+  left: 24px;
+  top: -2px;
+
+  width: 56px;
+  height: 3px;
+  background: var(--contact-blue);
+}
+
+/* Nét hồng ở mép dưới */
+.contact-frame::after {
+  content: "";
+  position: absolute;
+  right: 24px;
+  bottom: -2px;
+
+  width: 56px;
+  height: 3px;
+  background: var(--contact-pink);
+}
+
+.contact-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-list li {
+  min-width: 0;
+}
+
+.contact-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  height: 100%;
+  min-height: 108px;
+  padding: 22px 18px;
+
+  border: 1px solid #e2dce0;
+  background: #fff;
+  color: var(--contact-ink);
+  text-decoration: none;
+
+  transition:
+    background-color 250ms ease,
+    border-color 250ms ease,
+    color 250ms ease;
+}
+
+.contact-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  object-fit: contain;
+
+  transition: transform 300ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.contact-item-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+}
+
+.contact-label {
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--contact-pink);
+}
+
+.contact-value {
+  font-size: clamp(13px, 1.3vw, 16px);
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.contact-arrow {
+  margin-left: auto;
+  flex-shrink: 0;
+  color: var(--contact-pink);
+
+  transition:
+    transform 250ms ease,
+    color 250ms ease;
+}
+
+a.contact-item:focus-visible {
+  outline: 2px solid var(--contact-blue);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  a.contact-item:hover {
+    border-color: #b9c5ed;
+    background: #f0f2fb;
+    color: var(--contact-blue);
+  }
+
+  a.contact-item:hover .contact-icon {
+    transform: translateY(-3px);
+  }
+
+  a.contact-item:hover .contact-arrow {
+    color: var(--contact-blue);
+    transform: translate(2px, -2px);
+  }
+}
+
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 900px) {
+  .contact-page {
+    --contact-hand-width: 180px;
+    --contact-content-gap: 70px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-page {
+    --contact-padding: 24px;
+    --contact-hand-width: 110px;
+    --contact-content-gap: 64px;
+  }
+
+  .contact-page .contact-heading h1 {
+    font-size: clamp(40px, 10vw, 54px);
+    text-shadow: 1.5px 2px 0 var(--contact-blue);
+  }
+
+  .contact-page .contact-greeting {
+    font-size: 30px;
+    margin-bottom: 24px;
+  }
+
+  .contact-frame {
+    padding: 12px;
+  }
+
+  .contact-list {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .contact-item {
+    min-height: 88px;
+    padding: 18px 16px;
+  }
+
+  .contact-value {
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-type-visible::after {
+    display: none;
+  }
+
+  .contact-item,
+  .contact-icon,
+  .contact-arrow {
+    transition: none;
+  }
+}

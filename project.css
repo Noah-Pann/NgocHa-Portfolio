@@ -1,0 +1,670 @@
+/* ========================================
+   TRANG CHI TIẾT PROJECT
+   ======================================== */
+
+.inner-main.project-page {
+  --project-pink: #a64972;
+  --project-blue: #0040e3;
+  --project-ink: #231f20;
+
+  min-height: auto;
+  padding: clamp(24px, 4vw, 56px);
+  background: #fff;
+  color: var(--project-ink);
+  font-family: var(--body-font);
+}
+
+.project-page .project-back {
+  margin: 0 0 28px;
+  color: var(--project-pink);
+}
+
+.project-heading {
+  margin-bottom: 32px;
+}
+
+.project-page .project-eyebrow {
+  margin: 0 0 14px;
+  color: var(--project-pink);
+  font-size: 12px;
+  letter-spacing: .06em;
+}
+
+.project-page .project-heading h1 {
+  max-width: 20ch;
+  margin: 0 0 20px;
+
+  font-family: var(--title-font);
+  font-size: clamp(32px, 4.5vw, 60px);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -.035em;
+
+  color: var(--project-pink);
+  overflow-wrap: break-word;
+}
+
+.project-page .project-heading h1.is-long-title {
+  max-width: 32ch;
+  font-size: clamp(28px, 3.5vw, 46px);
+}
+
+.project-page .project-meta {
+  margin: 0;
+  color: #75616d;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* Video lớn: giữ nguyên tỉ lệ, không cắt hai cạnh */
+
+.project-media {
+  overflow: hidden;
+  background: #eee9e4;
+}
+
+.project-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 80svh;
+  background: #111;
+  object-fit: contain;
+}
+
+
+/* Bộ icon: hiện đủ bốn hình */
+
+.project-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(16px, 3vw, 40px);
+  padding: clamp(24px, 4vw, 56px);
+}
+
+.project-icon-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+
+/* Thông tin bên dưới */
+
+.project-overview {
+  display: grid;
+  grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr);
+  gap: clamp(24px, 5vw, 64px);
+
+  margin-top: clamp(36px, 5vw, 64px);
+  padding-top: 28px;
+  border-top: 1px solid #d9d5d7;
+}
+
+.project-page .project-overview h2 {
+  margin: 0;
+  color: var(--project-pink);
+  font-family: var(--title-font);
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.2;
+}
+
+.project-page .project-description p {
+  max-width: 60ch;
+  margin: 0;
+  color: var(--project-ink);
+  font-size: clamp(14px, 1.3vw, 16px);
+  line-height: 1.8;
+}
+
+.project-description .project-button {
+  margin-top: 24px;
+}
+
+
+/* Nút: cùng kiểu các ô keyword Profile */
+
+.project-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 44px;
+  padding: 11px 16px;
+
+  border: 1px solid #d9d5d7;
+  background: #f7f6f4;
+  color: var(--project-pink);
+
+  font-family: var(--body-font);
+  font-size: 13px;
+  line-height: 1.5;
+  text-decoration: none;
+
+  transition:
+    color 250ms ease,
+    background-color 250ms ease,
+    border-color 250ms ease;
+}
+
+.project-pagination {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: clamp(48px, 7vw, 88px);
+}
+
+.project-button:focus-visible {
+  outline: 2px solid var(--project-blue);
+  outline-offset: 4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-button:hover {
+    color: var(--project-blue);
+    background: #f0f2fb;
+    border-color: #b9c5ed;
+  }
+}
+
+@media (max-width: 700px) {
+  .project-overview {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project-icon-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .inner-main.project-page {
+    padding: 24px 20px 32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-button {
+    transition: none;
+  }
+}
+/* ========================================
+   THÔNG TIN VÀ PROCESS
+   ======================================== */
+
+.project-page {
+  --process-border: #ded9dc;
+  --process-caption: #766b71;
+  --process-section-gap: clamp(56px, 7vw, 88px);
+}
+
+
+/* ABOUT THE PROJECT */
+
+.project-page .project-overview {
+  align-items: start;
+  margin-top: clamp(36px, 5vw, 64px);
+  padding-top: 32px;
+  border-top: 1px solid var(--process-border);
+}
+
+.project-page .project-description > p {
+  font-family: var(--body-font);
+  font-size: clamp(14px, 1.3vw, 16px);
+  line-height: 1.8;
+}
+
+
+/* MY CONTRIBUTION */
+
+.project-contribution {
+  margin-top: 28px;
+  padding: 22px 24px;
+
+  border: 1px solid var(--process-border);
+  border-left: 3px solid var(--project-blue);
+  background: #f7f6f4;
+}
+
+.project-page .project-contribution .project-format {
+  margin: 0 0 16px;
+
+  font-family: var(--body-font);
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--process-caption);
+}
+
+.project-page .project-contribution-title {
+  margin: 0 0 10px;
+
+  font-family: var(--body-font);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--project-pink);
+}
+
+.project-page .project-contribution .project-contribution-copy {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--project-ink);
+}
+
+
+/* TIÊU ĐỀ PROCESS */
+
+.project-process {
+  margin-top: var(--process-section-gap);
+}
+
+.project-process-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.project-page .project-process-header h2 {
+  margin: 0;
+
+  font-family: var(--title-font);
+  font-size: clamp(30px, 3.5vw, 44px);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--project-pink);
+}
+
+.process-heading-dot {
+  display: block;
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+
+  border-radius: 50%;
+  background: var(--project-blue);
+}
+
+
+/* TỪNG BƯỚC PROCESS */
+
+.process-step {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  column-gap: 24px;
+  row-gap: 28px;
+
+  padding: 32px 0 40px;
+  border-top: 1px solid var(--process-border);
+}
+
+.process-step:last-child {
+  padding-bottom: 0;
+}
+
+.process-step-number {
+  padding-top: 3px;
+
+  font-family: var(--body-font);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .08em;
+  color: var(--project-blue);
+}
+
+.project-page .process-step-copy h3 {
+  margin: 0 0 14px;
+
+  font-family: var(--title-font);
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--project-pink);
+}
+
+.project-page .process-step-copy p {
+  max-width: 70ch;
+  margin: 0;
+
+  font-family: var(--body-font);
+  font-size: clamp(14px, 1.3vw, 16px);
+  line-height: 1.8;
+  color: var(--project-ink);
+}
+
+
+/* ẢNH PROCESS */
+
+.process-image-grid {
+  grid-column: 2;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 26px 20px;
+}
+
+.process-image-grid.is-single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.process-figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.process-figure.is-wide {
+  grid-column: 1 / -1;
+}
+
+.process-image-link {
+  display: block;
+  overflow: hidden;
+
+  border: 1px solid var(--process-border);
+  background: #f7f6f4;
+
+  cursor: zoom-in;
+  transition: border-color 250ms ease;
+}
+
+.process-image {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  /* Giữ nguyên toàn bộ ảnh, không cắt storyboard */
+  object-fit: contain;
+}
+
+
+/* Sketch dọc Silent Cat: giữ tỉ lệ và giới hạn chiều ngang */
+
+.process-figure.is-tall {
+  width: min(100%, 340px);
+  justify-self: center;
+}
+
+.project-page .process-caption {
+  margin-top: 10px;
+
+  font-family: var(--body-font);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--process-caption);
+}
+
+.process-image-link:focus-visible {
+  outline: 2px solid var(--project-blue);
+  outline-offset: 4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .process-image-link:hover {
+    border-color: var(--project-blue);
+  }
+}
+
+
+/* TABLET / MOBILE */
+
+@media (max-width: 700px) {
+  .project-page .project-overview {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .process-step {
+    grid-template-columns: 36px minmax(0, 1fr);
+    column-gap: 14px;
+    row-gap: 22px;
+    padding-block: 28px 32px;
+  }
+
+  .process-image-grid {
+    grid-column: 1 / -1;
+  }
+
+  .project-contribution {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .process-image-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .project-page .process-step-copy p {
+    font-size: 14px;
+  }
+
+  .process-figure.is-tall {
+    width: min(100%, 280px);
+  }
+
+  .project-page .process-caption {
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .process-image-link {
+    transition: none;
+  }
+}
+/* ========================================
+   OLYMPIAN ICONS — BA KÍCH THƯỚC
+   ======================================== */
+
+.project-media.is-icon-project {
+  overflow: visible;
+  background: transparent;
+}
+
+.project-page .icon-animated-section > h2,
+.project-page .icon-size-header h2 {
+  margin: 0;
+  font-family: var(--title-font);
+  font-size: clamp(24px, 2.8vw, 34px);
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--project-pink);
+}
+
+.icon-animated-section > .project-icon-grid {
+  margin-top: 22px;
+  background: #eee9e4;
+}
+
+
+/* Mỗi kích thước một phần riêng */
+
+.icon-size-section {
+  margin-top: clamp(36px, 5vw, 64px);
+  padding-top: 26px;
+  border-top: 1px solid #ded9dc;
+}
+
+.icon-size-header {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.icon-size-label {
+  font-family: var(--body-font);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--project-blue);
+}
+
+
+/* Số cột tự thay đổi theo size icon và chiều rộng trang */
+
+.icon-pack-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(min(100%, calc(var(--pack-size) + 32px)), 1fr)
+    );
+  gap: 16px;
+}
+
+.icon-pack-card {
+  min-width: 0;
+  margin: 0;
+  padding: 16px 12px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+
+  border: 1px solid #ded9dc;
+  background: #eee9e4;
+}
+
+.icon-pack-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: var(--pack-size);
+  cursor: zoom-in;
+}
+
+.icon-pack-link img {
+  display: block;
+
+  /* Giữ đúng kích thước khi đủ chỗ, không phóng ảnh nhỏ */
+  width: var(--pack-size);
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.project-page .icon-pack-card figcaption {
+  width: 100%;
+  font-family: var(--body-font);
+  font-size: 11px;
+  line-height: 1.5;
+  text-align: center;
+  overflow-wrap: anywhere;
+  color: var(--project-pink);
+}
+
+.icon-pack-link:focus-visible {
+  outline: 2px solid var(--project-blue);
+  outline-offset: 4px;
+}
+/* ========================================
+   VIDEO DEMO → WATCH FULL
+   ======================================== */
+
+.project-demo {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: #111;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.project-demo .project-video {
+  pointer-events: none;
+}
+
+.project-demo-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: grid;
+  place-items: center;
+
+  background: rgb(0 0 0 / 22%);
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+
+.project-demo-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 44px;
+  padding: 12px 22px;
+
+  border: 1px solid #d9d5d7;
+  background: #f7f6f4;
+  color: var(--project-pink);
+
+  font-family: var(--body-font);
+  font-size: clamp(14px, 1.4vw, 17px);
+  font-weight: 500;
+  line-height: 1.5;
+
+  transform: translateY(6px);
+  transition: transform 250ms ease;
+}
+
+.project-demo:hover .project-demo-overlay,
+.project-demo:focus-visible .project-demo-overlay {
+  opacity: 1;
+}
+
+.project-demo:hover .project-demo-label,
+.project-demo:focus-visible .project-demo-label {
+  transform: translateY(0);
+}
+
+.project-demo:focus-visible {
+  outline: 3px solid var(--project-blue);
+  outline-offset: -3px;
+}
+
+/* Chú thích nhỏ dưới bio của Tò Te Tí */
+.project-page .project-description > .project-coming-soon {
+  margin-top: 10px;
+  color: var(--project-pink);
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* Thiết bị cảm ứng: luôn thấy nút */
+@media (hover: none), (pointer: coarse) {
+  .project-demo-overlay {
+    place-items: end center;
+    padding: 18px;
+    opacity: 1;
+    background:
+      linear-gradient(transparent 55%, rgb(0 0 0 / 35%));
+  }
+
+  .project-demo-label {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-demo-overlay,
+  .project-demo-label {
+    transition: none;
+  }
+}

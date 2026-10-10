@@ -1,0 +1,1034 @@
+/* ========================================
+   THÔNG SỐ CHỈNH NHANH
+   ======================================== */
+
+:root {
+  /* Màu sắc */
+  --background: #000000;
+  --name-color: #a64972;
+  --role-color: #a64972;
+  --menu-color: #a64972;
+  --location-color: #000000;
+  --menu-highlight: #f8f0e9;
+  --portrait-color: #e4dcde;
+
+  --menu-hover-gradient: linear-gradient(
+    105deg,
+    rgb(255 255 255 / 98%) 0%,
+    rgb(255 255 255 / 75%) 55%,
+    rgb(255 255 255 / 15%) 100%
+  );
+
+  /* Font */
+  --title-font: "Lora", Georgia, serif;
+  --body-font: "DM Sans", Arial, sans-serif;
+
+  /* Phong thư trái */
+  --letter-width: 53%;
+  --letter-left: -3%;
+  --letter-top: 11.3%;
+
+  /* Phong thư menu */
+  --menu-width: 62.5%;
+  --menu-left: 46%;
+  --menu-top: -50.2%;
+
+  /* Giấy desktop: chuyển động dọc */
+  --paper-rest-x: 0px;
+  --paper-rest-y: 3.5%;
+  --paper-raised-x: 0px;
+  --paper-raised-y: -1%;
+  --paper-speed: 800ms;
+  --ease-soft: cubic-bezier(.22, 1, .36, 1);
+
+  /* Ảnh nền */
+  --bg-scale: 1.3;
+  --bg-opacity: .55;
+
+  /*
+   * Canh phần ảnh hiển thị trong khung.
+   * Không di chuyển cả khung để tránh hở nền.
+   */
+  --bg-x: 40%;
+  --bg-y: 75%;
+
+  /* Float: biên độ nhỏ hơn phần phủ dư 24px */
+  --bg-drift-x: 10px;
+  --bg-drift-y: -12px;
+  --bg-duration: 16s;
+}
+
+
+/* ========================================
+   THIẾT LẬP CHUNG
+   ======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--name-color);
+  font-family: var(--body-font);
+  isolation: isolate;
+}
+
+button {
+  font: inherit;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--title-font);
+  font-weight: 600;
+}
+
+.home {
+  position: relative;
+  z-index: 1;
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  overflow: clip;
+}
+
+.composition {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  isolation: isolate;
+  container-type: inline-size;
+}
+
+
+/* ========================================
+   NỀN
+   ======================================== */
+
+.sky {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--background);
+  isolation: isolate;
+}
+
+.sky__clouds {
+  position: absolute;
+  inset: -15%;
+
+  background:
+    radial-gradient(
+      ellipse at 15% 30%,
+      rgb(113 133 162 / 18%),
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 75% 65%,
+      rgb(108 121 154 / 16%),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 90% 10%,
+      rgb(147 151 174 / 12%),
+      transparent 40%
+    );
+
+  animation: cloud-drift 42s ease-in-out infinite alternate;
+}
+
+/*
+ * Khung ảnh phủ dư 24px mỗi cạnh.
+ * Khung không di chuyển; ảnh bên trong float nhẹ.
+ */
+.home-bg-position {
+  position: absolute;
+  inset: -24px;
+  width: auto;
+  height: auto;
+
+  mix-blend-mode: screen;
+  opacity: var(--bg-opacity);
+}
+
+.home-bg-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+
+  /* Giữ tỉ lệ ảnh và phủ kín khung */
+  object-fit: cover;
+  object-position: var(--bg-x) var(--bg-y);
+
+  transform-origin: center;
+  pointer-events: none;
+  user-select: none;
+
+  animation:
+    home-bg-float
+    var(--bg-duration)
+    ease-in-out
+    infinite
+    alternate;
+}
+
+@keyframes cloud-drift {
+  from {
+    transform: translate3d(-3%, -1%, 0);
+  }
+
+  to {
+    transform: translate3d(3%, 2%, 0);
+  }
+}
+
+@keyframes home-bg-float {
+  from {
+    transform:
+      translate3d(
+        calc(0px - var(--bg-drift-x)),
+        calc(0px - var(--bg-drift-y)),
+        0
+      )
+      scale(max(1, var(--bg-scale)));
+  }
+
+  to {
+    transform:
+      translate3d(
+        var(--bg-drift-x),
+        var(--bg-drift-y),
+        0
+      )
+      scale(max(1, var(--bg-scale)));
+  }
+}
+
+
+/* ========================================
+   PHONG THƯ BÊN TRÁI
+   ======================================== */
+
+.letter {
+  position: absolute;
+  left: var(--letter-left);
+  top: var(--letter-top);
+  width: var(--letter-width);
+  aspect-ratio: 1560 / 1529;
+  isolation: isolate;
+  z-index: 2;
+}
+
+.letter__layer {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.letter__front,
+.letter__paper {
+  z-index: 1;
+}
+
+.paper-window {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.paper-motion,
+.paper-hover,
+.identity {
+  position: absolute;
+  inset: 0;
+}
+
+.paper-hover {
+  transform: translate(
+    var(--paper-rest-x),
+    var(--paper-rest-y)
+  );
+
+  transition: transform var(--paper-speed) var(--ease-soft);
+}
+
+.identity {
+  z-index: 2;
+}
+
+.letter__shadow {
+  z-index: 4;
+}
+
+.letter__back {
+  z-index: 5;
+}
+
+.letter__logo {
+  position: absolute;
+  right: 5%;
+  bottom: 7%;
+  width: 22%;
+  height: auto;
+  z-index: 6;
+
+  pointer-events: none;
+  user-select: none;
+
+  mix-blend-mode: darken;
+  opacity: .73;
+}
+
+
+/* ========================================
+   TƯƠNG TÁC VỚI GIẤY
+   ======================================== */
+
+.paper-toggle {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+  z-index: 7;
+
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.paper-toggle:focus-visible {
+  outline: 2px solid var(--menu-highlight);
+  outline-offset: -10px;
+}
+
+.letter.is-paper-raised .paper-hover {
+  transform: translate(
+    var(--paper-raised-x),
+    var(--paper-raised-y)
+  );
+}
+
+
+/* ========================================
+   THÔNG TIN TRÊN GIẤY
+   ======================================== */
+
+.portrait {
+  position: absolute;
+  left: 12.5%;
+  top: 24.5%;
+  width: 26%;
+  height: 32.7%;
+  background: var(--portrait-color);
+}
+
+.identity__text {
+  position: absolute;
+  left: 45%;
+  top: 24%;
+  width: 46%;
+}
+
+.identity h1 {
+  margin: 0;
+  font-size: clamp(28px, 2.9cqw, 50px);
+  line-height: 1.2;
+  letter-spacing: -.025em;
+  color: var(--name-color);
+}
+
+.identity p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.identity .role {
+  margin-top: clamp(10px, 1cqw, 18px);
+  font-size: clamp(12px, 1.08cqw, 18px);
+  font-weight: 500;
+  color: var(--role-color);
+}
+
+.identity .location {
+  max-width: 26ch;
+  margin-top: clamp(10px, 1.1cqw, 20px);
+  font-size: clamp(11px, .92cqw, 15px);
+  font-weight: 400;
+  color: var(--location-color);
+}
+
+
+/* ========================================
+   PHONG THƯ BÊN PHẢI VÀ MENU
+   ======================================== */
+
+.menu-letter {
+  position: absolute;
+  left: var(--menu-left);
+  top: var(--menu-top);
+  width: var(--menu-width);
+  aspect-ratio: 1754 / 2048;
+  z-index: 1;
+}
+
+.menu-letter__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.navigation {
+  position: absolute;
+  left: 9%;
+  top: 47.9%;
+  width: 82%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: clamp(10px, 1.3cqw, 24px);
+}
+
+.nav-item {
+  width: max-content;
+  flex-shrink: 0;
+}
+
+.nav-link {
+  position: relative;
+  isolation: auto;
+
+  display: block;
+  width: max-content;
+  min-height: 44px;
+  padding: 8px 10px;
+  margin-left: -10px;
+
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+
+  font-family: var(--title-font);
+  font-size: clamp(21px, 1.95cqw, 32px);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -.015em;
+  text-align: left;
+  white-space: nowrap;
+
+  color: var(--menu-color);
+  cursor: pointer;
+
+  /* Giữ nút đục để Difference không nháy trắng */
+  opacity: 1;
+  transition: color 300ms ease;
+
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-link span {
+  position: relative;
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 300ms ease;
+}
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  inset: 5px 0;
+  z-index: 2;
+
+  background: var(--menu-hover-gradient);
+  mix-blend-mode: difference;
+  pointer-events: none;
+
+  transform: scaleX(0);
+  transform-origin: right center;
+
+  transition: transform 420ms cubic-bezier(.76, 0, .24, 1);
+}
+
+
+/* ========================================
+   MENU — CHẠM VÀ BÀN PHÍM
+   ======================================== */
+
+.nav-link.is-tap-active,
+.nav-link:focus-visible {
+  color: var(--name-color);
+}
+
+.nav-link.is-tap-active::before,
+.nav-link:focus-visible::before {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid var(--menu-color);
+  outline-offset: 4px;
+}
+
+.navigation:has(.nav-link.is-tap-active, .nav-link:focus-visible)
+.nav-link:not(.is-tap-active):not(:focus-visible) span {
+  opacity: .55;
+}
+
+
+/* ========================================
+   HOVER DESKTOP
+   ======================================== */
+
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) {
+  html:not(.intro-pending):not(.intro-running)
+  .letter:hover .paper-hover {
+    transform: translate(
+      var(--paper-raised-x),
+      var(--paper-raised-y)
+    );
+  }
+
+  .nav-link:hover {
+    color: var(--name-color);
+  }
+
+  .nav-link:hover::before {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+
+  .navigation:has(.nav-link:hover)
+  .nav-link:not(:hover):not(:focus-visible):not(.is-tap-active) span {
+    opacity: .55;
+  }
+
+  .navigation .nav-link:hover span,
+  .navigation .nav-link:focus-visible span {
+    opacity: 1;
+  }
+}
+
+
+/* ========================================
+   TRẠNG THÁI CHUẨN BỊ INTRO
+   ======================================== */
+
+.intro-pending .letter,
+.intro-pending .menu-letter,
+.intro-pending .nav-item {
+  opacity: 0;
+}
+
+
+/* ========================================
+   MOBILE / MÀN HÌNH HẸP
+   ======================================== */
+
+@media (max-width: 900px) {
+  :root {
+    /* Giấy mobile: chuyển động ngang */
+    --paper-rest-x: -8px;
+    --paper-rest-y: 0px;
+    --paper-raised-x: 12px;
+    --paper-raised-y: 0px;
+
+    /* Ảnh nền mobile */
+    --bg-y: 60%;
+    --bg-scale: 2;
+
+    /* Trôi nhanh hơn trước, giảm biên độ */
+    --bg-drift-x: 6px;
+    --bg-drift-y: -8px;
+    --bg-duration: 18s;
+  }
+
+  .home {
+    display: block;
+  }
+
+  .composition {
+    max-width: 560px;
+    min-height: 100svh;
+    margin-inline: auto;
+    padding: 0 0 44px;
+
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .sky__clouds {
+    opacity: .75;
+  }
+
+  /* Phong thư menu nằm lệch sang phải */
+  .menu-letter {
+    order: -1;
+    position: relative;
+    left: auto;
+    top: auto;
+
+    width: 115%;
+    margin-left: 36%;
+    padding: clamp(90px, 25vw, 130px) 0 72px;
+
+    aspect-ratio: auto;
+    isolation: isolate;
+  }
+
+  .menu-letter__image {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: auto;
+    z-index: -1;
+  }
+
+  .navigation {
+    position: relative;
+    left: 10%;
+    top: auto;
+    width: 80%;
+    padding: 0;
+    gap: 10px;
+  }
+
+  .nav-link {
+    font-size: clamp(20px, 4.2vw, 26px);
+  }
+
+  /* Kích thước và vị trí thư mobile */
+  .letter {
+    position: relative;
+    left: auto;
+    top: auto;
+
+    width: 128%;
+    max-width: 620px;
+    margin-left: -24%;
+    margin-top: -64px;
+
+    flex-shrink: 0;
+  }
+
+  .letter__layer {
+    transform: rotate(90deg);
+    transform-origin: center;
+  }
+
+  .paper-window {
+    padding: 0;
+  }
+
+  .letter__paper {
+    display: block;
+  }
+
+  .identity {
+    margin: 0;
+    padding: 0;
+    background: none;
+  }
+
+  .portrait {
+    left: 48%;
+    top: 10%;
+    width: 28%;
+    height: 26%;
+  }
+
+  .identity__text {
+    left: 39%;
+    top: 40%;
+    width: 40%;
+  }
+
+  .identity h1 {
+    font-size: clamp(20px, 5.2vw, 30px);
+  }
+
+  .identity .role {
+    margin-top: 8px;
+    font-size: clamp(12px, 2.8vw, 14px);
+    line-height: 1.45;
+  }
+
+  .identity .location {
+    max-width: none;
+    margin-top: 10px;
+    font-size: clamp(12px, 2.6vw, 13px);
+    line-height: 1.45;
+  }
+
+  .letter__logo {
+    left: 16%;
+    top: 12%;
+    right: auto;
+    bottom: auto;
+    width: 20%;
+  }
+}
+
+
+/* ========================================
+   GIẢM CHUYỂN ĐỘNG
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .sky__clouds,
+  .home-bg-image {
+    animation: none;
+  }
+
+  /* Giữ mức zoom khi tắt chuyển động */
+  .home-bg-image {
+    transform: scale(max(1, var(--bg-scale)));
+  }
+
+  .paper-hover,
+  .nav-link,
+  .nav-link span,
+  .nav-link::before {
+    transition: none;
+  }
+
+  .intro-pending .letter,
+  .intro-pending .menu-letter,
+  .intro-pending .nav-item {
+    opacity: 1;
+  }
+}
+
+/* Giữ bố cục ổn định khi thanh cuộn xuất hiện */
+html {
+  scrollbar-gutter: auto;
+  overflow-y: auto;
+  overflow-x: clip;
+}
+/* Tốc độ nền dùng chung cho mọi trang */
+:root {
+  --bg-duration: 8s;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --bg-duration: 10s;
+  }
+}
+
+/* Tiếp tục chuyển động từ thời điểm của trang trước */
+.home-bg-image {
+  animation-delay: var(--bg-time-offset, 0s);
+}
+/* Giữ kích thước nền thống nhất giữa các trang */
+.sky {
+  right: auto;
+  width: 100vw;
+}
+/* ========================================
+   HOME — THẺ THÔNG TIN CÁ NHÂN
+   ======================================== */
+
+.home .identity__text {
+  --identity-line: #a64972;
+  --identity-contact-color: #231f20;
+}
+
+/* Gạch ngắn dưới tên */
+.home .identity h1::after {
+  content: "";
+  display: block;
+
+  width: 24%;
+  height: 2px;
+  margin-top: clamp(6px, .6cqw, 10px);
+
+  background: var(--identity-line);
+}
+
+.home .identity .role {
+  margin-top: clamp(7px, .7cqw, 12px);
+  line-height: 1.45;
+}
+
+/* Viền mảnh quanh placeholder */
+.home .portrait {
+  outline: 1px solid rgb(166 73 114 / 40%);
+  outline-offset: 5px;
+}
+
+
+/* Danh sách liên lạc */
+.home .identity-contacts {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 7px 10px;
+
+  margin: clamp(10px, 1cqw, 16px) 0 0;
+  padding: clamp(9px, .8cqw, 13px) 0 0;
+  list-style: none;
+
+  border-top: 1px solid rgb(166 73 114 / 40%);
+}
+
+.home .identity-contacts li {
+  min-width: 0;
+}
+
+.home .identity-contacts a,
+.home .identity-contact-location {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
+
+  font-family: var(--body-font);
+  font-size: clamp(9px, .85cqw, 14px);
+  font-weight: 400;
+  line-height: 1.5;
+
+  color: var(--identity-contact-color);
+  text-decoration: none;
+}
+
+.home .identity-contacts img {
+  display: block;
+  width: clamp(12px, 1.1cqw, 18px);
+  height: clamp(12px, 1.1cqw, 18px);
+  margin-top: 1px;
+  flex-shrink: 0;
+
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.home .identity-contacts a > span,
+.home .identity-contact-location > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.home .identity-contacts a {
+  touch-action: manipulation;
+  transition: color 200ms ease;
+}
+
+.home .identity-contacts a:focus-visible {
+  outline: 2px solid var(--name-color);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .home .identity-contacts a:hover {
+    color: var(--name-color);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+
+/* Cho chuột/chạm đi xuyên qua nút phủ toàn phong thư.
+   Nút vẫn sử dụng được bằng bàn phím. */
+.home .paper-toggle {
+  pointer-events: none;
+}
+
+
+/* MOBILE — liên lạc xếp thành một cột */
+@media (max-width: 900px) {
+  .home .identity__text {
+    left: 39%;
+    top: 39%;
+    width: 40%;
+  }
+
+  .home .identity h1::after {
+    width: 32%;
+    margin-top: 7px;
+  }
+
+  .home .identity .role {
+    margin-top: 7px;
+    font-size: clamp(11px, 2.7vw, 14px);
+  }
+
+  .home .identity-contacts {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+
+    margin-top: 9px;
+    padding-top: 8px;
+  }
+
+  .home .identity-contacts a,
+  .home .identity-contact-location {
+    gap: 6px;
+    font-size: clamp(10px, 2.5vw, 12px);
+    line-height: 1.45;
+  }
+
+  .home .identity-contacts img {
+    width: 13px;
+    height: 13px;
+  }
+
+  .home .portrait {
+    outline-offset: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home .identity-contacts a {
+    transition: none;
+  }
+}
+/* ========================================
+   HOME — CÁC LỚP PHONG THƯ ĐI CÙNG NHAU
+   ======================================== */
+
+.home .letter {
+  /* Tăng số này để letter-front-up thấp xuống thêm */
+  --front-offset-y: 28px;
+
+  --envelope-move-x: 0px;
+  --envelope-move-y: 0px;
+}
+
+/* Canh riêng mặt thư dưới */
+.home .letter__front {
+  top: var(--front-offset-y);
+}
+
+/* Các lớp thư cùng khoảng dịch chuyển và tốc độ.
+   translate không ghi đè góc xoay mobile. */
+.home .letter__front,
+.home .letter__shadow,
+.home .letter__back,
+.home .letter__logo {
+  translate:
+    var(--envelope-move-x)
+    var(--envelope-move-y);
+
+  transition:
+    translate var(--paper-speed) var(--ease-soft);
+}
+
+/* Khi chạm trên mobile */
+.home .letter.is-paper-raised {
+  --envelope-move-x:
+    calc(var(--paper-raised-x) - var(--paper-rest-x));
+
+  --envelope-move-y:
+    calc(var(--paper-raised-y) - var(--paper-rest-y));
+}
+
+/* Khi hover desktop, sau intro */
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) {
+  html:not(.intro-pending):not(.intro-running)
+  .home .letter:hover {
+    --envelope-move-x:
+      calc(var(--paper-raised-x) - var(--paper-rest-x));
+
+    --envelope-move-y:
+      calc(var(--paper-raised-y) - var(--paper-rest-y));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home .letter__front,
+  .home .letter__shadow,
+  .home .letter__back,
+  .home .letter__logo {
+    transition: none;
+  }
+}
+
+
+/* ========================================
+   ICON LIÊN LẠC LỚN HƠN
+   ======================================== */
+
+.home .identity-contacts img {
+  width: clamp(18px, 1.6cqw, 26px);
+  height: clamp(18px, 1.6cqw, 26px);
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.home .identity-contacts a,
+.home .identity-contacts .identity-contact-location {
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 900px) {
+  .home .identity-contacts img {
+    width: 19px;
+    height: 19px;
+  }
+}
+
+
+/* Bỏ gạch hồng ngắn dưới tên Phan Ngoc Ha */
+.home .identity h1::after {
+  content: none;
+}
+
+
+/* Giảm chuyển động theo thiết lập thiết bị */
+@media (prefers-reduced-motion: reduce) {
+  .home .letter__front {
+    transition: none;
+  }
+}
+@media (max-width: 900px) {
+  .home .letter {
+    /* Canh riêng trên mobile */
+    --front-offset-y: -0px;
+    --front-offset-x: -12px;
+  }
+
+  .home .letter__front {
+    top: var(--front-offset-y);
+    left: var(--front-offset-x);
+  }
+}
+/* Hình vẽ trên giấy — bỏ nền placeholder, giữ viền */
+.home .portrait {
+  background: transparent;
+}
+
+.home .portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}

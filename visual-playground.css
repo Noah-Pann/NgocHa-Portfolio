@@ -1,0 +1,677 @@
+/* ========================================
+   CHỈNH NHANH — CHỈ CHỈNH THÔNG SỐ Ở ĐÂY
+   ======================================== */
+
+.playground-page {
+  --play-pink: #a64972;
+  --play-blue: #0040e3;
+  --play-ink: #231f20;
+  --animation-background: #eee9e4;
+
+  /* DESKTOP — trên 900px */
+
+  --girl-width: 70%;
+  --girl-left: -50px;
+  --girl-top: -190px;
+  --girl-max-height: none;
+
+  /* Sao: top giảm = lên; left giảm = sang trái */
+  --play-star-size: clamp(304px, 40vw, 500px);
+  --play-star-left: calc(10% - 30px);
+  --play-star-top: -180px;
+  --play-star-speed: 90s;
+
+  --arts-height: 520px;
+  --art-width: 195px;
+  --art-height: 315px;
+  --art-gap: 28px;
+  --arts-left: 18%;
+  --arts-top-gap: 20px;
+}
+
+/* TABLET — từ 601px đến 900px */
+@media (min-width: 601px) and (max-width: 900px) {
+  .playground-page {
+    --girl-width: 46%;
+    --girl-left: 0px;
+    --girl-top: 0px;
+    --girl-max-height: 100%;
+
+    --play-star-size: clamp(304px, 40vw, 500px);
+    --play-star-left: calc(24% - 30px);
+    --play-star-top: -42px;
+
+    --arts-height: 450px;
+    --art-width: 160px;
+    --art-height: 270px;
+    --art-gap: 22px;
+    --arts-left: 18%;
+    --arts-top-gap: 28px;
+  }
+}
+
+/* MOBILE — tối đa 600px */
+@media (max-width: 600px) {
+  .playground-page {
+    --girl-width: 48%;
+    --girl-left: 0px;
+    --girl-top: 0px;
+    --girl-max-height: 100%;
+
+    --play-star-size: 296px;
+    --play-star-left: calc(28% - 30px);
+    --play-star-top: -42px;
+
+    --arts-height: 390px;
+    --art-width: 135px;
+    --art-height: 230px;
+    --art-gap: 20px;
+    --arts-left: 16%;
+    --arts-top-gap: 28px;
+  }
+}
+
+
+/* ========================================
+   GIẤY TRẮNG
+   ======================================== */
+
+.inner-main.playground-page {
+  position: relative;
+  isolation: isolate;
+  min-height: auto;
+  padding: 0;
+  overflow: clip;
+
+  background: #fff;
+  color: var(--play-ink);
+  font-family: var(--body-font);
+}
+
+
+/* ========================================
+   TIÊU ĐỀ
+   ======================================== */
+
+.playground-heading {
+  padding: clamp(28px, 4vw, 56px);
+  padding-bottom: 24px;
+}
+
+.playground-page .playground-heading h1 {
+  margin: 0;
+  font-family: var(--title-font);
+  font-size: clamp(40px, 6.2vw, 82px);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -.045em;
+  color: var(--play-pink);
+  text-shadow: 2px 3px 0 var(--play-blue);
+}
+
+.playground-intro {
+  margin-left: 38%;
+  padding: 12px 30px 0;
+}
+
+.playground-page .playground-intro h2,
+.playground-page .playground-animation > h2 {
+  margin: 0 0 16px;
+  font-family: var(--title-font);
+  font-size: clamp(30px, 3.5vw, 44px);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--play-pink);
+}
+
+.playground-page .playground-intro p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--play-pink);
+}
+
+
+/* ========================================
+   DẢI TRANH
+   ======================================== */
+
+.arts-stage {
+  position: relative;
+  height: var(--arts-height);
+  margin-top: var(--arts-top-gap);
+}
+
+.arts-viewport {
+  position: absolute;
+  inset: 0 0 0 var(--arts-left);
+  z-index: 1;
+  overflow: hidden;
+
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.arts-viewport.is-dragging,
+.arts-viewport.is-dragging .art-card {
+  cursor: grabbing;
+}
+
+.art-slot {
+  position: absolute;
+  top: 50%;
+  left: 0;
+
+  width: var(--art-width);
+  height: var(--art-height);
+  margin-top: calc(var(--art-height) / -2);
+}
+
+.art-slot.is-expanded {
+  z-index: 3;
+}
+
+.art-card {
+  position: absolute;
+  top: 50%;
+  left: 0;
+
+  display: block;
+  width: var(--art-width);
+  height: var(--art-height);
+  padding: 0;
+
+  transform: translateY(-50%);
+  border: 1px solid #d9d5d7;
+  border-radius: 0;
+  background: #f7f6f4;
+  cursor: grab;
+
+  transition:
+    width 400ms cubic-bezier(.22, 1, .36, 1),
+    height 400ms cubic-bezier(.22, 1, .36, 1),
+    left 400ms cubic-bezier(.22, 1, .36, 1),
+    box-shadow 400ms ease;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+.art-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.art-slot.is-expanded .art-card {
+  box-shadow: 0 12px 30px rgb(35 31 32 / 14%);
+}
+
+.art-slot.is-expanded img {
+  object-fit: contain;
+}
+
+.art-card[aria-pressed="true"] {
+  border-color: var(--play-blue);
+}
+
+.art-card:focus-visible {
+  outline: 2px solid var(--play-blue);
+  outline-offset: 3px;
+}
+
+
+/* ========================================
+   GIRL VÀ NGÔI SAO
+   ======================================== */
+
+.playground-girl {
+  position: absolute;
+  z-index: 5;
+
+  left: var(--girl-left);
+  top: var(--girl-top);
+  width: var(--girl-width);
+  height: auto;
+  max-height: var(--girl-max-height);
+
+  display: block;
+  object-fit: contain;
+  object-position: left top;
+
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.playground-star {
+  position: absolute;
+  z-index: 6;
+
+  left: var(--play-star-left);
+  top: var(--play-star-top);
+  width: var(--play-star-size);
+  height: auto;
+
+  display: block;
+  mix-blend-mode: exclusion;
+  transform-origin: center;
+
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+
+  animation:
+    playground-star-spin
+    var(--play-star-speed)
+    linear
+    infinite;
+}
+
+@keyframes playground-star-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* ========================================
+   NÚT
+   ======================================== */
+
+.playground-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 44px;
+  padding: 10px 15px;
+
+  border: 1px solid #d9d5d7;
+  border-radius: 0;
+  background: #f7f6f4;
+  color: #a64972;
+
+  font-family: var(--body-font);
+  font-size: 12px;
+  line-height: 1.5;
+  cursor: pointer;
+  touch-action: manipulation;
+
+  transition:
+    background-color 250ms ease,
+    border-color 250ms ease,
+    color 250ms ease;
+}
+
+.playground-button:focus-visible {
+  outline: 2px solid #0040e3;
+  outline-offset: 3px;
+}
+
+
+/* ========================================
+   ANIMATION — RỘNG HẾT GIẤY, TRÊN LỚP GIRL
+   ======================================== */
+
+.playground-animation {
+  position: relative;
+  z-index: 10;
+
+  width: 100%;
+  margin: 24px 0 0;
+  padding: clamp(36px, 4.5vw, 60px);
+
+  background: var(--animation-background);
+  border-top: 1px solid var(--play-pink);
+  border-bottom: 1px solid var(--play-pink);
+}
+
+.playground-animation::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+
+  border: 1px solid rgb(166 73 114 / 28%);
+  pointer-events: none;
+}
+
+.playground-animation::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: clamp(36px, 4.5vw, 60px);
+
+  width: 64px;
+  height: 3px;
+  background: var(--play-blue);
+  pointer-events: none;
+}
+
+.playground-page .playground-animation > h2 {
+  margin-bottom: 32px;
+}
+
+.animation-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px 18px;
+}
+
+.animation-card {
+  min-width: 0;
+}
+
+.animation-preview {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+
+  border: 1px solid rgb(166 73 114 / 25%);
+  background: #ddd5d9;
+}
+
+.animation-preview > img,
+.animation-preview > video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.animation-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 18px;
+
+  background: linear-gradient(
+    transparent 45%,
+    rgb(0 0 0 / 35%)
+  );
+
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+
+.animation-card:hover .animation-overlay,
+.animation-card:focus-within .animation-overlay {
+  opacity: 1;
+}
+
+.playground-page .animation-name {
+  margin: 12px 0 0;
+  font-family: var(--body-font);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--play-pink);
+}
+
+.playground-page .animation-type {
+  margin: 4px 0 0;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #766b71;
+}
+
+
+/* ========================================
+   KHUNG XEM PROJECT
+   ======================================== */
+
+.animation-dialog {
+  width: min(960px, calc(100% - 32px));
+  max-height: 90svh;
+  padding: clamp(18px, 3vw, 30px);
+
+  overflow: auto;
+  border: 1px solid #d9d5d7;
+  background: #fff;
+  color: #231f20;
+  font-family: var(--body-font);
+}
+
+.animation-dialog::backdrop {
+  background: rgb(0 0 0 / 75%);
+}
+
+.animation-dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.animation-dialog-header h2 {
+  margin: 0;
+  font-family: var(--title-font);
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.2;
+  color: #a64972;
+}
+
+.animation-dialog-header button {
+  flex-shrink: 0;
+}
+
+#animation-dialog-media {
+  background: #eee9e4;
+}
+
+#animation-dialog-media video,
+#animation-dialog-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 60svh;
+  object-fit: contain;
+}
+
+#animation-dialog-media video {
+  background: #111;
+}
+
+.animation-dialog-info {
+  margin-top: 22px;
+}
+
+#animation-dialog-bio {
+  max-width: 65ch;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+#animation-dialog-software {
+  margin: 14px 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #a64972;
+}
+
+
+/* ========================================
+   RESPONSIVE — BỐ CỤC
+   ======================================== */
+
+@media (max-width: 900px) {
+  .playground-intro {
+    margin-left: 0;
+    padding: 12px clamp(24px, 4vw, 40px) 0;
+  }
+
+  .animation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .playground-heading {
+    padding: 28px 24px;
+  }
+
+  .playground-page .playground-heading h1 {
+    font-size: clamp(38px, 9vw, 54px);
+    text-shadow: 1.5px 2px 0 var(--play-blue);
+  }
+
+  .playground-intro {
+    padding: 0 24px;
+  }
+
+  .playground-animation {
+    margin-top: 20px;
+    padding: 32px 24px;
+  }
+
+  .playground-animation::before {
+    inset: 8px;
+  }
+
+  .playground-animation::after {
+    left: 24px;
+    width: 44px;
+  }
+
+  .animation-overlay {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .animation-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ========================================
+   TƯƠNG TÁC VÀ GIẢM CHUYỂN ĐỘNG
+   ======================================== */
+
+@media (hover: none) {
+  .animation-overlay {
+    opacity: 1;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .playground-button:hover {
+    color: #0040e3;
+    background: #f0f2fb;
+    border-color: #b9c5ed;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .playground-star {
+    animation: none;
+  }
+
+  .art-card,
+  .animation-overlay,
+  .playground-button {
+    transition: none;
+  }
+}
+/* ========================================
+   BA DÒNG CHỮ CÙNG MÉP TRÁI
+   ======================================== */
+
+.playground-page {
+  --play-text-inset: clamp(28px, 4vw, 56px);
+}
+
+/* Visual Playground */
+.playground-page .playground-heading {
+  margin: 0;
+  padding: var(--play-text-inset);
+  padding-bottom: 24px;
+  text-align: left;
+}
+
+/* Illustrator + dòng mô tả */
+.playground-page .playground-intro {
+  margin: 0;
+  padding: 12px var(--play-text-inset) 0;
+  text-align: left;
+}
+
+/* Desktop giữ cách đặt girl hiện tại */
+.playground-girl-frame {
+  display: contents;
+}
+
+
+/* ========================================
+   GIRL — TABLET VÀ MOBILE
+   ======================================== */
+
+/* TABLET */
+@media (min-width: 601px) and (max-width: 900px) {
+  .playground-page {
+    --girl-visible-width: min(59%, 380px);
+    --girl-visible-left: -85px;
+    --girl-visible-top: 50px;
+  }
+}
+
+/* MOBILE — giữ thông số bạn đã chỉnh */
+@media (max-width: 600px) {
+  .playground-page {
+    --play-text-inset: 24px;
+
+    --art-width: 110px;
+    --art-height: 190px;
+    --art-gap: 18px;
+    --arts-height: 390px;
+
+    --girl-visible-width: 59%;
+    --girl-visible-left: -70px;
+    --girl-visible-top: 35px;
+  }
+}
+
+/* Khung cắt dùng chung cho tablet và mobile */
+@media (max-width: 900px) {
+  .playground-girl-frame {
+    display: block;
+    position: absolute;
+    z-index: 5;
+
+    width: var(--girl-visible-width);
+    left: var(--girl-visible-left);
+    top: var(--girl-visible-top);
+
+    aspect-ratio: 946 / 1104;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .playground-girl-frame .playground-girl {
+    position: absolute;
+
+    /* Bù khoảng trong suốt của ảnh — giữ nguyên */
+    left: 0;
+    top: -20.562%;
+    width: 151.057%;
+    height: auto;
+
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    transform: none;
+  }
+}

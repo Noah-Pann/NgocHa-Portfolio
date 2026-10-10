@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta
+    name="description"
+    content="Phan Ngoc Ha — Graphic Designer, Illustrator & Motion Designer."
+  >
+
+  <title>Phan Ngoc Ha — Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Lora:wght@500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="background.css">
+  <!-- Giữ script ở đây để chuẩn bị intro trước khi Home xuất hiện -->
+  <script src="script.js"></script>
+  <script src="pages.js" defer></script>
+  <script src="background.js"></script>
+</head>
+
+<body>
+  <!-- NỀN MÂY -->
+<!-- Nền ảnh của Home -->
+<div class="sky" aria-hidden="true">
+  <div class="home-bg-position">
+    <img
+      class="home-bg-image"
+      src="assets-all/bg.png"
+      alt=""
+      draggable="false"
+    >
+  </div>
+</div>
+
+  <main class="home" aria-label="Phan Ngoc Ha portfolio">
+    <div class="composition">
+
+      <!-- PHONG THƯ BÊN TRÁI -->
+      <section class="letter" aria-labelledby="name">
+
+        <!-- Layer 1: mặt dưới -->
+        <img
+          class="letter__layer letter__front"
+          src="home%20page/letter-front-up.png"
+          width="1560"
+          height="1529"
+          alt=""
+          draggable="false"
+        >
+
+        <!-- Layer 2: giấy và thông tin cùng di chuyển -->
+        <div class="paper-window">
+          <!-- Chuyển động lúc mở web -->
+          <div class="paper-motion">
+            <!-- Chuyển động khi hover/chạm -->
+            <div class="paper-hover">
+
+              <img
+                class="letter__layer letter__paper"
+                src="home%20page/paper.png"
+                width="1560"
+                height="1529"
+                alt=""
+                draggable="false"
+              >
+
+<div class="identity">
+<div class="portrait">
+  <img
+    src="home%20page/profile-pic.webp"
+    alt="Illustrated portrait of Phan Ngoc Ha"
+    width="1086"
+    height="842"
+    draggable="false"
+  >
+</div>
+
+  <div class="identity__text">
+    <h1 id="name">Phan Ngoc Ha</h1>
+
+    <p class="role">
+      Motion Designer &amp; Illustrator
+    </p>
+
+    <ul class="identity-contacts" aria-label="Contact information">
+      <li>
+        <a href="tel:+84961116530">
+          <img
+            src="contact/contact-icons/phone-icon.svg"
+            alt=""
+            width="16"
+            height="16"
+          >
+          <span>+84 961 116 530</span>
+        </a>
+      </li>
+
+      <li>
+        <a
+          href="https://www.instagram.com/noa_hpan/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="contact/contact-icons/ig-icon.svg"
+            alt=""
+            width="16"
+            height="16"
+          >
+          <span>noa_hpan</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="mailto:Hargoc530@gmail.com">
+          <img
+            src="contact/contact-icons/mail-icon.svg"
+            alt=""
+            width="16"
+            height="16"
+          >
+          <span>Hargoc530@gmail.com</span>
+        </a>
+      </li>
+
+      <li>
+        <span class="identity-contact-location">
+          <img
+            src="contact/contact-icons/location-icon.svg"
+            alt=""
+            width="16"
+            height="16"
+          >
+          <span>Ho Chi Minh City, Vietnam</span>
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+        <!-- Layer 4: shadow -->
+        <img
+          class="letter__layer letter__shadow"
+          src="home%20page/letter-shadow-up.png"
+          width="1560"
+          height="1529"
+          alt=""
+          draggable="false"
+        >
+
+        <!-- Layer 5: mặt trên -->
+        <img
+          class="letter__layer letter__back"
+          src="home%20page/letter-back-up.png"
+          width="1560"
+          height="1529"
+          alt=""
+          draggable="false"
+        >
+
+        <!-- Layer 6: logo -->
+        <img
+          class="letter__logo"
+          src="logo.svg"
+          alt="HA"
+          draggable="false"
+        >
+
+        <!-- Vùng chạm và điều khiển bằng bàn phím -->
+        <button
+          class="paper-toggle"
+          type="button"
+          aria-label="Raise paper"
+          aria-pressed="false"
+          hidden
+        ></button>
+      </section>
+
+      <!-- PHONG THƯ BÊN PHẢI -->
+      <header class="menu-letter">
+        <img
+          class="menu-letter__image"
+          src="home%20page/letter-back.png"
+          width="1754"
+          height="2048"
+          alt=""
+          draggable="false"
+        >
+
+        <nav class="navigation" aria-label="Main navigation">
+
+          <div class="nav-item">
+            <button
+              class="nav-link"
+              type="button"
+              data-page="profile"
+            >
+              <span>Profile</span>
+            </button>
+          </div>
+
+          <div class="nav-item">
+            <button
+              class="nav-link"
+              type="button"
+              data-page="selected-works"
+            >
+              <span>Selected Works</span>
+            </button>
+          </div>
+
+          <div class="nav-item">
+            <button
+              class="nav-link"
+              type="button"
+              data-page="visual-playground"
+            >
+              <span>Visual Playground</span>
+            </button>
+          </div>
+
+          <div class="nav-item">
+            <button
+              class="nav-link"
+              type="button"
+              data-page="contact"
+            >
+              <span>Contact</span>
+            </button>
+          </div>
+
+        </nav>
+      </header>
+
+    </div>
+  </main>
+</body>
+</html>

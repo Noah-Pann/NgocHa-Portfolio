@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Visual Playground — Phan Ngoc Ha</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Lora:wght@500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="pages.css">
+  <link rel="stylesheet" href="visual-playground.css?v=2">
+
+  <script src="background.js"></script>
+  <script src="header.js" defer></script>
+  <script src="pages.js" defer></script>
+  <script src="visual-playground.js?v=2" defer></script>
+</head>
+
+<body class="inner-page">
+  <div class="sky" aria-hidden="true">
+    <div class="home-bg-position">
+      <img
+        class="home-bg-image"
+        src="assets-all/bg.png"
+        alt=""
+        draggable="false"
+      >
+    </div>
+  </div>
+
+  <header class="inner-header"></header>
+
+  <main class="inner-main playground-page">
+    <header class="playground-heading">
+      <h1>Visual Playground</h1>
+    </header>
+
+    <section class="playground-arts" aria-labelledby="arts-heading">
+      <div class="playground-intro">
+        <h2 id="arts-heading">Illustration and Animation</h2>
+        <p>A selection of drawings from my art gallery.</p>
+      </div>
+
+      <div class="arts-stage">
+        <div
+          id="arts-viewport"
+          class="arts-viewport"
+          role="group"
+          aria-label="Artwork gallery. Drag to browse, or focus an artwork and use the arrow keys."
+        ></div>
+
+<div class="playground-girl-frame" aria-hidden="true">
+  <img
+    class="playground-girl"
+    src="visual-playground/girl-left.webp"
+    alt=""
+    draggable="false"
+  >
+</div>
+
+        <img
+          class="playground-star"
+          src="About%20me/decoration-assets/starss.svg"
+          alt=""
+          aria-hidden="true"
+          draggable="false"
+        >
+      </div>
+    </section>
+
+    <section
+      class="playground-animation"
+      aria-labelledby="animation-heading"
+    >
+      <h2 id="animation-heading">Animation</h2>
+      <div id="animation-grid" class="animation-grid"></div>
+    </section>
+  </main>
+
+  <dialog
+    id="animation-dialog"
+    class="animation-dialog"
+    aria-labelledby="animation-dialog-title"
+  >
+    <div class="animation-dialog-header">
+      <h2 id="animation-dialog-title"></h2>
+
+      <button
+        id="animation-close"
+        class="playground-button"
+        type="button"
+        aria-label="Close project"
+      >
+        Close ×
+      </button>
+    </div>
+
+    <div id="animation-dialog-media"></div>
+
+    <div class="animation-dialog-info">
+      <p id="animation-dialog-bio"></p>
+      <p id="animation-dialog-software"></p>
+    </div>
+  </dialog>
+</body>
+</html>

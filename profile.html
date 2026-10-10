@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Profile — Phan Ngoc Ha</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Lora:wght@500;600&display=swap"
+    rel="stylesheet"
+  >
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="pages.css">
+<link rel="stylesheet" href="profile.css">
+
+<script src="background.js"></script>
+<script src="header.js" defer></script>
+<script src="pages.js" defer></script>
+<script src="profile.js" defer></script>
+</head>
+
+<body class="inner-page">
+  <div class="sky" aria-hidden="true">
+    <div class="home-bg-position">
+      <img
+        class="home-bg-image"
+        src="assets-all/bg.png"
+        alt=""
+        draggable="false"
+      >
+    </div>
+  </div>
+
+  <header class="inner-header"></header>
+
+  <main class="inner-main profile-page">
+    <section class="profile-hero" aria-labelledby="about-title">
+
+      <!-- COLLAGE -->
+      <div class="profile-collage">
+
+        <div class="profile-side" aria-hidden="true">
+          <div class="profile-side__fill"></div>
+          <img
+            src="About%20me/side-profile.png"
+            alt=""
+            draggable="false"
+          >
+        </div>
+
+        <img
+          class="profile-photo"
+          src="About%20me/profile-pic.png"
+          alt="Portrait of Phan Ngoc Ha"
+          draggable="false"
+        >
+
+        <!-- ViewBox cắt khoảng trống có sẵn trong SVG -->
+        <svg
+          class="profile-star profile-star--blue"
+          viewBox="129 61 207 317"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <image
+            href="About%20me/decoration-assets/blue-black-star.svg"
+            width="439.918"
+            height="415.679"
+          />
+        </svg>
+
+        <svg
+          class="profile-star profile-star--pink"
+          viewBox="61 40 281 281"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <image
+            href="About%20me/decoration-assets/pink-star.svg"
+            width="403.404"
+            height="360.322"
+          />
+        </svg>
+
+        <span class="profile-dot profile-dot--one" aria-hidden="true"></span>
+        <span class="profile-dot profile-dot--two" aria-hidden="true"></span>
+      </div>
+
+      <!-- ABOUT ME -->
+      <div class="profile-copy">
+        <h1 class="profile-title" id="about-title" data-write>
+          About Me
+        </h1>
+
+        <p class="profile-role">
+          <span class="profile-sr-only">
+            I'm a Graphic Designer, Illustrator and Motion Designer.
+          </span>
+
+          <span aria-hidden="true">
+            I'm a<span id="profile-role-text"> Graphic Designer...</span><span
+              class="profile-caret"
+            ></span>
+          </span>
+        </p>
+
+        <div class="profile-bio">
+          <p data-write>
+            Hi, I'm Hà, a Digital Media student at RMIT University
+            Vietnam working across graphic design, illustration and motion.
+          </p>
+
+          <p data-write>
+            I enjoy combining different media and visual styles to create
+            expressive work centred around storytelling and emotion.
+            I'm currently exploring 3D and VFX to expand the way
+            I bring visual ideas to life.
+          </p>
+        </div>
+    <ul class="profile-keywords" aria-label="Creative approach">
+      <li>Expressive</li>
+      <li>Playful</li>
+      <li>Experimental</li>
+      <li>Mixed Media</li>
+    </ul>
+        <!-- Hai vết mực: ink 1 và ink 2 -->
+        <div class="profile-inks" aria-hidden="true">
+          <span class="profile-ink ink-1" id="ink-1"></span>
+          <span class="profile-ink ink-2" id="ink-2"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="profile-skills" aria-labelledby="skills-title">
+      <svg
+        class="profile-mark profile-mark--closing"
+        viewBox="230 185 170 143"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <image
+          href="About%20me/decoration-assets/mark--up.svg"
+          width="619.915"
+          height="549.698"
+        />
+      </svg>
+
+      <h2 id="skills-title" data-write>What I Do</h2>
+
+      <p class="profile-skill-list" data-write>
+        Graphic Design · Illustration · Motion Design · Animation ·
+        Visual Storytelling · 3D Character Design &amp; Modelling
+      </p>
+    </section>
+
+    <!-- TOOLS -->
+    <section class="profile-tools" aria-labelledby="tools-title">
+      <h2 id="tools-title" data-write>Tools</h2>
+
+      <ul class="profile-tool-list">
+        <li>
+          <img src="About%20me/icons/ae.png" alt="" loading="lazy">
+          <span>After Effects</span>
+        </li>
+        <li>
+          <img src="About%20me/icons/ai.png" alt="" loading="lazy">
+          <span>Illustrator</span>
+        </li>
+        <li>
+          <img src="About%20me/icons/pts.png" alt="" loading="lazy">
+          <span>Photoshop</span>
+        </li>
+        <li>
+          <img src="About%20me/icons/blender.png" alt="" loading="lazy">
+          <span>Blender</span>
+        </li>
+        <li>
+          <img src="About%20me/icons/csp.png" alt="" loading="lazy">
+          <span>Clip Studio Paint</span>
+        </li>
+        <li>
+          <img src="About%20me/icons/figma.png" alt="" loading="lazy">
+          <span>Figma</span>
+        </li>
+      </ul>
+    </section>
+
+    <div class="profile-bottom">
+      <svg
+        class="profile-mark profile-mark--opening"
+        viewBox="219 203 171 144"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <image
+          href="About%20me/decoration-assets/mark-down.svg"
+          width="619.915"
+          height="549.698"
+        />
+      </svg>
+
+      <a class="inner-back" href="index.html">← Back to Home</a>
+    </div>
+  </main>
+</body>
+</html>

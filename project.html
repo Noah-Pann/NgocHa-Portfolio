@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Project — Phan Ngoc Ha</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Lora:wght@500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="pages.css">
+  <link rel="stylesheet" href="project.css?v=3">
+
+  <script src="background.js"></script>
+  <script src="header.js" defer></script>
+  <script src="pages.js" defer></script>
+<script src="project.js?v=icons-fix-2" defer></script>
+</head>
+
+<body class="inner-page">
+  <div class="sky" aria-hidden="true">
+    <div class="home-bg-position">
+      <img
+        class="home-bg-image"
+        src="assets-all/bg.png"
+        alt=""
+        draggable="false"
+      >
+    </div>
+  </div>
+
+  <header class="inner-header"></header>
+
+  <main class="inner-main project-page">
+    <a class="inner-back project-back" href="selected-works.html">
+      ← Selected Works
+    </a>
+
+    <header class="project-heading">
+      <p class="project-eyebrow">Academic project</p>
+      <h1 id="project-title"></h1>
+      <p id="project-meta" class="project-meta"></p>
+    </header>
+
+    <div id="project-media" class="project-media"></div>
+
+    <section
+      class="project-overview"
+      aria-labelledby="overview-title"
+    >
+      <h2 id="overview-title">About the Project</h2>
+      <div class="project-description">
+        <p id="project-description"></p>
+      </div>
+    </section>
+
+    <!-- JS tự đặt Process ngay sau phần About -->
+
+    <nav class="project-pagination" aria-label="Other projects">
+      <a id="project-previous" class="project-button"></a>
+      <a id="project-next" class="project-button"></a>
+    </nav>
+
+    <noscript>Please enable JavaScript to view this project.</noscript>
+  </main>
+</body>
+</html>
